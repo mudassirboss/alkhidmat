@@ -4,7 +4,16 @@
 
 @section('content')
 <!-- Advanced Hero Slider -->
-<div class="hero-slider-container">
+<div class="hero-slider-container hero-bg-animated parallax-section">
+    <!-- Animated Background Elements -->
+    <div class="floating-shapes parallax-bg">
+        <div class="shape shape-circle shape-1"></div>
+        <div class="shape shape-square shape-2"></div>
+        <div class="shape shape-circle shape-3"></div>
+    </div>
+    <div class="gradient-orb orb-blue orb-1"></div>
+    <div class="gradient-orb orb-gold orb-2"></div>
+    
     <div class="hero-slider">
         <!-- Slide 1: Welcome / Main -->
         <div class="hero-slide active">
@@ -102,7 +111,15 @@
 </div>
 
 <!-- Stats Counter Section -->
-<section class="stats">
+<section class="stats stats-bg-animated parallax-section">
+    <!-- Animated Background -->
+    <div class="floating-shapes parallax-bg">
+        <div class="shape shape-square shape-4"></div>
+        <div class="shape shape-circle shape-5"></div>
+    </div>
+    <div class="gradient-orb orb-blue orb-3"></div>
+    <div class="pattern-overlay"></div>
+    
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card reveal">

@@ -1,0 +1,449 @@
+/* ============================================
+   Animated Background Elements & Effects
+   ============================================ */
+
+/* Background Decorative Elements */
+.bg-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Floating Geometric Shapes */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.08;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.shape-circle {
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-blue), #0066cc);
+}
+
+.shape-square {
+    background: linear-gradient(135deg, var(--accent-gold), #c4941f);
+    transform: rotate(45deg);
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 87px solid rgba(0, 82, 165, 0.08);
+}
+
+/* Individual Shape Animations */
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+    animation: float 20s infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: -3%;
+    animation: float 25s infinite reverse;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    right: 10%;
+    animation: float-rotate 30s infinite;
+}
+
+.shape-4 {
+    width: 180px;
+    height: 180px;
+    bottom: 20%;
+    left: 15%;
+    animation: float 22s infinite;
+    animation-delay: -5s;
+}
+
+.shape-5 {
+    width: 120px;
+    height: 120px;
+    top: 70%;
+    left: 60%;
+    animation: float-rotate 18s infinite reverse;
+    animation-delay: -8s;
+}
+
+/* Gradient Orbs */
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.orb-blue {
+    background: radial-gradient(circle, var(--primary-blue) 0%, transparent 70%);
+}
+
+.orb-gold {
+    background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -15%;
+    right: -15%;
+    animation-delay: -3s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    top: 40%;
+    right: -5%;
+    animation-delay: -6s;
+}
+
+/* Animated Pattern Overlay */
+.pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 35px,
+            rgba(0, 82, 165, 0.02) 35px,
+            rgba(0, 82, 165, 0.02) 70px);
+    animation: pattern-slide 60s linear infinite;
+}
+
+/* Dot Grid Pattern */
+.dot-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(0, 82, 165, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: dots-fade 4s ease-in-out infinite;
+}
+
+/* Floating Particles */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particle-float 15s linear infinite;
+}
+
+.particle:nth-child(odd) {
+    background: var(--accent-gold);
+}
+
+/* Generate multiple particles */
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(2) {
+    left: 20%;
+    animation-delay: -2s;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(3) {
+    left: 30%;
+    animation-delay: -4s;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(4) {
+    left: 40%;
+    animation-delay: -6s;
+    animation-duration: 14s;
+}
+
+.particle:nth-child(5) {
+    left: 50%;
+    animation-delay: -8s;
+    animation-duration: 16s;
+}
+
+.particle:nth-child(6) {
+    left: 60%;
+    animation-delay: -10s;
+    animation-duration: 13s;
+}
+
+.particle:nth-child(7) {
+    left: 70%;
+    animation-delay: -12s;
+    animation-duration: 17s;
+}
+
+.particle:nth-child(8) {
+    left: 80%;
+    animation-delay: -14s;
+    animation-duration: 19s;
+}
+
+.particle:nth-child(9) {
+    left: 90%;
+    animation-delay: -16s;
+    animation-duration: 11s;
+}
+
+.particle:nth-child(10) {
+    left: 95%;
+    animation-delay: -18s;
+    animation-duration: 20s;
+}
+
+/* Wave Animation */
+.wave-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    animation: wave-slide 30s linear infinite;
+}
+
+.wave-1 {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="rgba(0,82,165,0.05)"/></svg>');
+    opacity: 0.5;
+}
+
+.wave-2 {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="rgba(212,175,55,0.05)"/></svg>');
+    animation-duration: 40s;
+    animation-direction: reverse;
+    opacity: 0.3;
+}
+
+/* Keyframe Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    25% {
+        transform: translateY(-30px) translateX(20px) scale(1.05);
+    }
+
+    50% {
+        transform: translateY(-50px) translateX(-20px) scale(1.1);
+    }
+
+    75% {
+        transform: translateY(-30px) translateX(20px) scale(1.05);
+    }
+}
+
+@keyframes float-rotate {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-40px) translateX(30px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateY(-60px) translateX(-30px) rotate(180deg);
+    }
+
+    75% {
+        transform: translateY(-40px) translateX(30px) rotate(270deg);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.25;
+    }
+}
+
+@keyframes wave-slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes pattern-slide {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+@keyframes dots-fade {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Parallax Effect */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 120%;
+    height: 200%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Section-Specific Backgrounds */
+.hero-bg-animated,
+.programs-bg-animated,
+.stats-bg-animated,
+.testimonials-bg-animated,
+.cta-bg-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-animated::before,
+.programs-bg-animated::before,
+.stats-bg-animated::before,
+.testimonials-bg-animated::before,
+.cta-bg-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+
+    .shape,
+    .gradient-orb,
+    .particle,
+    .wave,
+    .pattern-overlay {
+        animation: none !important;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .gradient-orb {
+        filter: blur(60px);
+    }
+
+    .shape {
+        opacity: 0.05;
+    }
+
+    .particle {
+        display: none;
+    }
+}
