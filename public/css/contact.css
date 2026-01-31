@@ -1,0 +1,147 @@
+/* Contact Page Styles */
+.contact-hero {
+    position: relative;
+    padding: 150px 0 100px;
+    color: white;
+    background: linear-gradient(rgba(0, 45, 91, 0.9), rgba(0, 64, 128, 0.8)), url('../hero_humanitarian_work_1769859411641.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 64, 128, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #004080;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    margin: 0 0 5px;
+    color: #004080;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.map-container {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.contact-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* More subtle shadow */
+    border: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-control:focus {
+    border-color: #004080;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 64, 128, 0.1);
+}
+
+.btn-submit {
+    background: var(--accent-gold, #d4af37);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: #004080;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #c3e6cb;
+}

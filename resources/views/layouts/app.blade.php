@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/floating-shapes.css') }}">
     <link rel="stylesheet" href="{{ asset('css/advanced.css') }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('css/button-fix.css') }}">
     
     @yield('styles')
 </head>

@@ -1,0 +1,66 @@
+/* ============================================
+   Donate Button (Header) - FIX
+   ============================================ */
+.btn-donate,
+header .btn-donate {
+    background: var(--accent-gold) !important;
+    color: white !important;
+    padding: 12px 28px !important;
+    border-radius: 30px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid transparent;
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.btn-donate:hover,
+header .btn-donate:hover {
+    background: white !important;
+    color: var(--accent-gold) !important;
+    border-color: var(--accent-gold) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Mobile Adjustment for Donate Button */
+@media (max-width: 768px) {
+
+    .btn-donate,
+    header .btn-donate {
+        width: 80%;
+        text-align: center;
+        padding: 15px !important;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        display: block !important;
+        margin-left: auto;
+        margin-right: auto;
+        background: var(--accent-gold) !important;
+    }
+}
+
+/* ============================================
+   Header Alignment Fix
+   ============================================ */
+.nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.nav-links {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    /* Reset default list margin */
+}
+
+.nav-links li {
+    display: flex !important;
+    align-items: center !important;
+}
