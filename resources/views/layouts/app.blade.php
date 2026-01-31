@@ -133,27 +133,54 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background: var(--neutral-dark); color: white; padding: var(--space-3xl) 0 var(--space-lg);">
-        <div class="container">
+    <!-- Footer -->
+    <footer class="site-footer" style="background: linear-gradient(135deg, #002d5b 0%, #004080 100%); color: white; padding: 120px 0 40px; position: relative; overflow: hidden;">
+        <!-- Top Wave Divider -->
+        <div class="footer-divider-top" style="position: absolute; top: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2;">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 60px;">
+                <path fill="#ffffff" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="particles-container">
+            <div class="particle particle-sm particle-white"></div>
+            <div class="particle particle-md particle-gold"></div>
+            <div class="particle particle-sm particle-white"></div>
+            <div class="particle particle-lg particle-gold"></div>
+            <div class="particle particle-md particle-white"></div>
+            <div class="particle particle-sm particle-gold"></div>
+            <div class="particle particle-md particle-white"></div>
+            <div class="particle particle-lg particle-gold"></div>
+        </div>
+
+        <!-- Background Shapes -->
+        <div class="shapes-background">
+            <div class="floating-shape shape-circle shape-lg theme-blue pos-1" data-speed="0.1" style="opacity: 0.1;"></div>
+            <div class="floating-shape shape-hexagon shape-xl theme-gold pos-2" data-speed="0.15" style="opacity: 0.08;"></div>
+            <div class="floating-shape shape-blob shape-md theme-blue pos-8" data-speed="0.2" style="opacity: 0.1;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-xl);">
                 <div>
                     <h3 style="color: var(--accent-gold); margin-bottom: var(--space-md);">Alkhidmat Foundation Muzaffargarh</h3>
-                    <p style="color: #ccc; line-height: 1.8;">Service to Humanity with Integrity since 1990. Serving the people of Muzaffargarh and beyond with dedication to humanitarian welfare.</p>
+                    <p style="color: #e0e0e0; line-height: 1.8;">Service to Humanity with Integrity since 1990. Serving the people of Muzaffargarh and beyond with dedication to humanitarian welfare.</p>
                 </div>
                 
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: var(--space-xs);"><a href="#programs" style="color: #ccc; text-decoration: none;">Programs</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#about" style="color: #ccc; text-decoration: none;">About Us</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#impact" style="color: #ccc; text-decoration: none;">Impact</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#donate" style="color: #ccc; text-decoration: none;">Donate</a></li>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: var(--space-xs);"><a href="#programs" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Programs</a></li>
+                        <li style="margin-bottom: var(--space-xs);"><a href="#about" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                        <li style="margin-bottom: var(--space-xs);"><a href="#impact" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Impact</a></li>
+                        <li style="margin-bottom: var(--space-xs);"><a href="#donate" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Donate</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Contact Info</h4>
-                    <p style="color: #ccc; line-height: 1.8;">
+                    <p style="color: #e0e0e0; line-height: 1.8;">
                         Email: muzaffargarh@alkhidmat.org<br>
                         Phone: +92-XXX-XXXXXXX<br>
                         Address: Muzaffargarh, Punjab, Pakistan
@@ -163,15 +190,15 @@
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Follow Us</h4>
                     <div style="display: flex; gap: var(--space-md);">
-                        <a href="#" style="color: white; font-size: 1.5rem;">📘</a>
-                        <a href="#" style="color: white; font-size: 1.5rem;">🐦</a>
-                        <a href="#" style="color: white; font-size: 1.5rem;">📸</a>
-                        <a href="#" style="color: white; font-size: 1.5rem;">▶️</a>
+                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📘</a>
+                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">🐦</a>
+                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📸</a>
+                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">▶️</a>
                     </div>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid #444; padding-top: var(--space-md); text-align: center; color: #888;">
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-md); text-align: center; color: #a0a0a0;">
                 <p>&copy; 2026 Alkhidmat Foundation Muzaffargarh. All rights reserved.</p>
             </div>
         </div>
