@@ -17,6 +17,12 @@
     --neutral-light: #f5f5f5;
     --white: #fff;
 
+    /* Dark Mode Variables */
+    --bg-dark-body: #121212;
+    --bg-dark-card: #1e1e1e;
+    --text-dark-primary: #e0e0e0;
+    --text-dark-muted: #b0b0b0;
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #0052A5 0%, #003875 100%);
     --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);

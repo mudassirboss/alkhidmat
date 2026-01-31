@@ -217,7 +217,7 @@
         <div class="leadership-grid">
             <!-- Founder -->
             <div class="leader-card reveal">
-                <img src="{{ asset('founder_portrait_1769864030324.png') }}" alt="Founder" class="leader-img">
+                <img src="{{ asset('images/founder-portrait.png') }}" alt="Founder" class="leader-img">
                 <h3 class="leader-name">Abdur Shakoor</h3>
                 <p class="leader-title">Founder</p>
                 <p class="leader-quote">"Service to humanity is the highest form of worship. We are committed to reaching every soul in need across Pakistan."</p>
@@ -225,9 +225,9 @@
             
             <!-- Chairman -->
             <div class="leader-card reveal">
-                <img src="{{ asset('chairman_portrait_1769863962838.png') }}" alt="Chairman" class="leader-img">
+                <img src="{{ asset('images/chairman-portrait.png') }}" alt="Chairman" class="leader-img">
                 <h3 class="leader-name">Dr. Hafeez ur Rehman</h3>
-                <h3 class="leader-title">Chairman</h3>
+                <p class="leader-title">Chairman</p>
                 <p class="leader-quote">"Integrity and transparency are the pillars of Alkhidmat. We ensure your trust transforms into real impact on the ground."</p>
             </div>
         </div>
@@ -242,11 +242,11 @@
         
         <div class="gallery-grid">
             <div class="gallery-item reveal">
-                <img src="{{ asset('gallery_aid_distribution_1769863984155.png') }}" alt="Aid Distribution">
+                <img src="{{ asset('images/gallery-aid-distribution.png') }}" alt="Aid Distribution">
                 <div class="gallery-overlay">Food Package Distribution in Muzaffargarh</div>
             </div>
             <div class="gallery-item reveal">
-                <img src="{{ asset('gallery_medical_camp_1769864002661.png') }}" alt="Medical Camp">
+                <img src="{{ asset('images/gallery-medical-camp.png') }}" alt="Medical Camp">
                 <div class="gallery-overlay">Free Medical Clinic for Rural Communities</div>
             </div>
             <div class="gallery-item reveal">
