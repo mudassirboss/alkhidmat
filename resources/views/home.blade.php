@@ -4,10 +4,102 @@
 
 @section('content')
 <!-- Advanced Hero Slider -->
+<!-- Dynamic Advanced Hero Slider -->
 <div class="hero-slider-container">
-    
-    <div class="hero-slider">
-        <!-- Slide 1: Welcome / Main -->
+    @if($sliders->count() > 0)
+        <div class="hero-slider">
+            @foreach($sliders as $index => $slide)
+            <div class="hero-slide {{ $index == 0 ? 'active' : '' }}">
+                
+                @if($slide->layout == 'split-right')
+                    <!-- Split Layout: Content Left, Image Right -->
+                    <div class="split-layout-container" style="display:flex; height:100%; width:100%; background: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'linear-gradient(135deg, #004080 0%, #002d5b 100%)' }}; background-size:cover; background-position:center; position:relative;">
+                         @if($slide->background_image_path)
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,40,90,0.85);"></div> <!-- Overlay for readability -->
+                        @endif
+                        <div class="split-content" style="flex:1; display:flex; align-items:center; justify-content:center; padding:50px; position:relative; z-index:2;">
+                            <div class="slide-text">
+                                <h1 class="slide-title reveal" style="font-size:3.5rem; text-align:left;">{{ $slide->title }}</h1>
+                                <p class="slide-subtitle reveal" style="text-align:left; font-size:1.2rem; opacity:0.9;">{{ $slide->subtitle }}</p>
+                                <div class="slide-cta" style="justify-content:flex-start;">
+                                    @if($slide->button_text)
+                                        <a href="{{ $slide->button_link ?? '#' }}" class="btn btn-primary">{{ $slide->button_text }}</a>
+                                    @endif
+                                    @if($slide->secondary_button_text)
+                                        <a href="{{ $slide->secondary_button_link ?? '#' }}" class="btn btn-secondary">{{ $slide->secondary_button_text }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="split-image" style="flex:1; background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}'); background-size:cover; background-position:center; position:relative; z-index:2;">
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div> <!-- Fade blend -->
+                        </div>
+                    </div>
+
+                @elseif($slide->layout == 'split-left')
+                    <!-- Split Layout: Image Left, Content Right -->
+                    <div class="split-layout-container" style="display:flex; height:100%; width:100%; background: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'linear-gradient(135deg, #004080 0%, #002d5b 100%)' }}; background-size:cover; background-position:center; position:relative;">
+                        @if($slide->background_image_path)
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,40,90,0.85);"></div>
+                        @endif
+                        <div class="split-image" style="flex:1; background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}'); background-size:cover; background-position:center; position:relative; z-index:2;">
+                            <div style="position:absolute; top:0; right:0; width:100%; height:100%; background: linear-gradient(to left, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div>
+                        </div>
+                        <div class="split-content" style="flex:1; display:flex; align-items:center; justify-content:center; padding:50px; position:relative; z-index:2;">
+                            <div class="slide-text">
+                                <h1 class="slide-title reveal" style="font-size:3.5rem; text-align:left;">{{ $slide->title }}</h1>
+                                <p class="slide-subtitle reveal" style="text-align:left; font-size:1.2rem; opacity:0.9;">{{ $slide->subtitle }}</p>
+                                <div class="slide-cta" style="justify-content:flex-start;">
+                                    @if($slide->button_text)
+                                        <a href="{{ $slide->button_link ?? '#' }}" class="btn btn-primary">{{ $slide->button_text }}</a>
+                                    @endif
+                                    @if($slide->secondary_button_text)
+                                        <a href="{{ $slide->secondary_button_link ?? '#' }}" class="btn btn-secondary">{{ $slide->secondary_button_text }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @else
+                    <!-- Classic Center Layout -->
+                    <div class="slide-background kenburns" style="background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}');"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <div class="container">
+                            <div class="slide-text">
+                                <h1 class="slide-title reveal">{{ $slide->title }}</h1>
+                                <p class="slide-subtitle reveal">{{ $slide->subtitle }}</p>
+                                <div class="slide-cta">
+                                    @if($slide->button_text)
+                                        <a href="{{ $slide->button_link ?? '#' }}" class="btn btn-primary">{{ $slide->button_text }}</a>
+                                    @endif
+                                    @if($slide->secondary_button_text)
+                                        <a href="{{ $slide->secondary_button_link ?? '#' }}" class="btn btn-secondary">{{ $slide->secondary_button_text }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+            @endforeach
+        </div>
+
+        <!-- Navigation Controls -->
+        <button class="slider-nav slider-nav-prev" aria-label="Previous slide">‹</button>
+        <button class="slider-nav slider-nav-next" aria-label="Next slide">›</button>
+        
+        <!-- Pagination Dots -->
+        <div class="slider-pagination">
+            @foreach($sliders as $index => $slide)
+                <span class="slider-dot {{ $index == 0 ? 'active' : '' }}"></span>
+            @endforeach
+        </div>
+        
+    @else
+        <!-- Fallback Static Slider (If no active slides) -->
+       <div class="hero-slider">
         <div class="hero-slide active">
             <div class="slide-background kenburns" style="background-image: url('{{ asset('images/slider-humanitarian.png') }}');"></div>
             <div class="slide-overlay"></div>
@@ -15,87 +107,16 @@
                 <div class="container">
                     <div class="slide-text">
                         <h1 class="slide-title">Service to Humanity with Integrity</h1>
-                        <p class="slide-subtitle">Alkhidmat Foundation Muzaffargarh - Transforming lives since 1990 through compassion, dedication, and humanitarian service across Pakistan.</p>
+                        <p class="slide-subtitle">Alkhidmat Foundation Muzaffargarh - Transforming lives since 1990.</p>
                         <div class="slide-cta">
                             <a href="#donate" class="btn btn-primary">Donate Now</a>
-                            <a href="#programs" class="btn btn-secondary">Explore Programs</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Slide 2: Education -->
-        <div class="hero-slide">
-            <div class="slide-background kenburns" style="background-image: url('{{ asset('images/slider-education.png') }}');"></div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="container">
-                    <div class="slide-text">
-                        <h1 class="slide-title">Empowering Through Education</h1>
-                        <p class="slide-subtitle">60 schools nationwide • 1,569 scholarships awarded • Bano Qabil IT training transforming futures</p>
-                        <div class="slide-cta">
-                            <a href="#programs" class="btn btn-primary">Support Education</a>
-                            <a href="#" class="btn btn-secondary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 3: Healthcare -->
-        <div class="hero-slide">
-            <div class="slide-background kenburns" style="background-image: url('{{ asset('images/slider-medical.png') }}');"></div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="container">
-                    <div class="slide-text">
-                        <h1 class="slide-title">Healing with Compassion</h1>
-                        <p class="slide-subtitle">57 hospitals • 296 ambulances • Free medical care for those who need it most in Muzaffargarh and beyond</p>
-                        <div class="slide-cta">
-                            <a href="#donate" class="btn btn-primary">Support Healthcare</a>
-                            <a href="#" class="btn btn-secondary">Our Clinics</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 4: Clean Water -->
-        <div class="hero-slide">
-            <div class="slide-background kenburns" style="background-image: url('{{ asset('images/slider-water.png') }}');"></div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <div class="container">
-                    <div class="slide-text">
-                        <h1 class="slide-title">Clean Water, Healthy Lives</h1>
-                        <p class="slide-subtitle">25,809 water projects completed • Solar-powered wells • Bringing safe drinking water to rural communities</p>
-                        <div class="slide-cta">
-                            <a href="#donate" class="btn btn-primary">Fund a Well</a>
-                            <a href="#" class="btn btn-secondary">WASH Projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Navigation Controls -->
-        <button class="slider-nav slider-nav-prev" aria-label="Previous slide">‹</button>
-        <button class="slider-nav slider-nav-next" aria-label="Next slide">›</button>
-        
-        <!-- Pagination Dots -->
-        <div class="slider-pagination">
-            <span class="slider-dot active"></span>
-            <span class="slider-dot"></span>
-            <span class="slider-dot"></span>
-            <span class="slider-dot"></span>
-        </div>
-        
-        <!-- Slide Number -->
-        <div class="slide-number">01 / 04</div>
-        
-        <!-- Play/Pause Control -->
-        <button class="slider-control" aria-label="Pause slider">⏸</button>
+       </div>
+    @endif
         
         <!-- Mobile Swipe Indicator -->
         <div class="swipe-indicator">Swipe to explore →</div>

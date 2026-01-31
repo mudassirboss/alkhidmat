@@ -5,9 +5,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/volunteer', function () {
     return view('volunteer');
@@ -120,5 +118,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/galleries', [App\Http\Controllers\Admin\GalleryController::class, 'index'])->name('galleries.index');
         Route::post('/galleries', [App\Http\Controllers\Admin\GalleryController::class, 'store'])->name('galleries.store');
         Route::delete('/galleries/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'destroy'])->name('galleries.destroy');
+
+        // Sliders
+        Route::get('/sliders', [App\Http\Controllers\Admin\SliderController::class, 'index'])->name('sliders.index');
+        Route::post('/sliders', [App\Http\Controllers\Admin\SliderController::class, 'store'])->name('sliders.store');
+        Route::get('/sliders/{slider}/edit', [App\Http\Controllers\Admin\SliderController::class, 'edit'])->name('sliders.edit');
+        Route::put('/sliders/{slider}', [App\Http\Controllers\Admin\SliderController::class, 'update'])->name('sliders.update');
+        Route::delete('/sliders/{slider}', [App\Http\Controllers\Admin\SliderController::class, 'destroy'])->name('sliders.destroy');
     });
 });
