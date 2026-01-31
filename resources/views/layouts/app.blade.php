@@ -6,10 +6,13 @@
     <meta name="description" content="Alkhidmat Foundation Muzaffargarh - Service to Humanity with Integrity">
     <title>@yield('title', 'Alkhidmat Foundation - Service to Humanity')</title>
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical images for faster LCP -->
+    <link rel="preload" as="image" href="{{ asset('images/slider-education.png') }}" fetchpriority="high">
     
     <!-- Custom CSS (with preload for performance) -->
     <link rel="preload" href="{{ asset('css/app.css') }}" as="style">
@@ -117,6 +120,7 @@
     <script defer src="{{ asset('js/stats-counter.js') }}"></script>
     <script defer src="{{ asset('js/advanced.js') }}"></script>
     <script defer src="{{ asset('js/hero-slider.js') }}"></script>
+    <script defer src="{{ asset('js/image-optimizer.js') }}"></script>
     @yield('scripts')
 </body>
 </html>
