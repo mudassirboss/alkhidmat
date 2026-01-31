@@ -21,10 +21,18 @@ class AdvancedStatsCounter {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !this.hasAnimated.has(entry.target)) {
-                    this.animateCounter(entry.target);
-                    this.createParticles(entry.target.closest('.stat-card'));
-                    this.hasAnimated.add(entry.target);
+                const card = entry.target.closest('.stat-card');
+
+                if (entry.isIntersecting) {
+                    if (!this.hasAnimated.has(entry.target)) {
+                        this.animateCounter(entry.target);
+                        this.hasAnimated.add(entry.target);
+                    }
+                    // Start continuous particles
+                    this.startContinuousParticles(card);
+                } else {
+                    // Stop particles when not visible
+                    this.stopContinuousParticles(card);
                 }
             });
         }, options);
@@ -40,6 +48,32 @@ class AdvancedStatsCounter {
                 card.appendChild(particleContainer);
             }
         });
+    }
+
+    startContinuousParticles(card) {
+        if (card.particleInterval) return; // Already running
+
+        const particleContainer = card.querySelector('.stat-particles');
+        if (!particleContainer) return;
+
+        // Create initial burst
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+                this.createSingleParticle(particleContainer);
+            }, i * 30);
+        }
+
+        // Then continuous spawning
+        card.particleInterval = setInterval(() => {
+            this.createSingleParticle(particleContainer);
+        }, 400); // New particle every 400ms
+    }
+
+    stopContinuousParticles(card) {
+        if (card.particleInterval) {
+            clearInterval(card.particleInterval);
+            card.particleInterval = null;
+        }
     }
 
     animateCounter(element) {
@@ -71,19 +105,6 @@ class AdvancedStatsCounter {
         };
 
         requestAnimationFrame(updateCounter);
-    }
-
-    createParticles(card) {
-        const particleContainer = card.querySelector('.stat-particles');
-        if (!particleContainer) return;
-
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-            setTimeout(() => {
-                this.createSingleParticle(particleContainer);
-            }, i * 50);
-        }
     }
 
     createSingleParticle(container) {
