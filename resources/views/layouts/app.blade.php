@@ -11,11 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
+    <!-- Custom CSS (with preload for performance) -->
+    <link rel="preload" href="{{ asset('css/app.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/phase2-styles.css') }}" as="style">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/phase2-styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/advanced.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/advanced.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}" media="print" onload="this.media='all'">
     
     @yield('styles')
 </head>
@@ -110,11 +112,11 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/stats-counter.js') }}"></script>
-    <script src="{{ asset('js/advanced.js') }}"></script>
-    <script src="{{ asset('js/hero-slider.js') }}"></script>
+    <!-- JavaScript (with defer for performance) -->
+    <script defer src="{{ asset('js/app.js') }}"></script>
+    <script defer src="{{ asset('js/stats-counter.js') }}"></script>
+    <script defer src="{{ asset('js/advanced.js') }}"></script>
+    <script defer src="{{ asset('js/hero-slider.js') }}"></script>
     @yield('scripts')
 </body>
 </html>
