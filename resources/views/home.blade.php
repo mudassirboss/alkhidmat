@@ -135,6 +135,15 @@
         <div class="particle particle-lg particle-blue"></div>
     </div>
     
+    <!-- Floating Shapes -->
+    <div class="shapes-background">
+        <div class="floating-shape shape-circle shape-md theme-blue pos-1" data-speed="0.2"></div>
+        <div class="floating-shape shape-blob shape-lg theme-mixed-1 pos-2" data-speed="0.15"></div>
+        <div class="floating-shape shape-hexagon shape-sm theme-gold pos-3" data-speed="0.25"></div>
+        <div class="floating-shape shape-circle shape-xl theme-blue pos-4" data-speed="0.1"></div>
+        <div class="floating-shape shape-square shape-md theme-gold pos-5" data-speed="0.3"></div>
+    </div>
+    
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card reveal">
@@ -179,6 +188,14 @@
 
 <!-- Programs Section -->
 <section id="programs" class="programs programs-enhanced section-with-divider">
+    <!-- Floating Shapes -->
+    <div class="shapes-background">
+        <div class="floating-shape shape-square shape-lg theme-gray pos-2" data-speed="0.2"></div>
+        <div class="floating-shape shape-circle shape-md theme-blue pos-4" data-speed="0.25"></div>
+        <div class="floating-shape shape-blob shape-xl theme-mixed-2 pos-6" data-speed="0.15"></div>
+        <div class="floating-shape shape-hexagon shape-sm theme-gray pos-8" data-speed="0.3"></div>
+        <div class="floating-shape shape-circle shape-lg theme-gold pos-9" data-speed="0.18"></div>
+    </div>
     
     <div class="container">
         <h2 class="section-title reveal">Our Programs</h2>
@@ -257,6 +274,14 @@
 
 <!-- Leadership Section -->
 <section class="leadership leadership-enhanced section-with-divider">
+    <!-- Floating Shapes -->
+    <div class="shapes-background">
+        <div class="floating-shape shape-blob shape-lg theme-gray pos-1" data-speed="0.2"></div>
+        <div class="floating-shape shape-hexagon shape-md theme-blue pos-3" data-speed="0.22"></div>
+        <div class="floating-shape shape-circle shape-xl theme-mixed-1 pos-5" data-speed="0.12"></div>
+        <div class="floating-shape shape-square shape-sm theme-gray pos-7" data-speed="0.28"></div>
+        <div class="floating-shape shape-blob shape-md theme-gold pos-10" data-speed="0.25"></div>
+    </div>
     
     <div class="container">
         <h2 class="section-title reveal">Our Leadership</h2>
@@ -291,6 +316,14 @@
 
 <!-- Media Gallery -->
 <section class="gallery gallery-enhanced section-with-divider">
+    <!-- Floating Shapes -->
+    <div class="shapes-background">
+        <div class="floating-shape shape-circle shape-lg theme-gold pos-2" data-speed="0.18"></div>
+        <div class="floating-shape shape-square shape-md theme-gold pos-4" data-speed="0.25"></div>
+        <div class="floating-shape shape-blob shape-xl theme-mixed-2 pos-6" data-speed="0.15"></div>
+        <div class="floating-shape shape-hexagon shape-sm theme-gold pos-8" data-speed="0.3"></div>
+        <div class="floating-shape shape-circle shape-md theme-gold pos-9" data-speed="0.22"></div>
+    </div>
     
     <div class="container">
         <h2 class="section-title reveal">Impact in Pictures</h2>

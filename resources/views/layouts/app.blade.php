@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('css/animated-backgrounds.css') }}">
     <link rel="stylesheet" href="{{ asset('css/section-dividers.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/floating-shapes.css') }}">
     <link rel="stylesheet" href="{{ asset('css/advanced.css') }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}" media="print" onload="this.media='all'">
     
@@ -182,6 +183,7 @@
     <script defer src="{{ asset('js/advanced.js') }}"></script>
     <script defer src="{{ asset('js/hero-slider.js') }}"></script>
     <script defer src="{{ asset('js/image-optimizer.js') }}"></script>
+    <script defer src="{{ asset('js/floating-shapes.js') }}"></script>
     <script defer src="{{ asset('js/parallax.js') }}"></script>
     @yield('scripts')
 </body>
