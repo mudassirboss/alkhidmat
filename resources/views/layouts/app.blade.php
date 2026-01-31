@@ -114,14 +114,9 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li><a href="{{ route('volunteer') }}" class="nav-link">Volunteer</a></li>
                     <li><a href="{{ route('news') }}" class="nav-link">News</a></li>
-                    <li class="nav-extra">
-                        <select class="lang-selector" onchange="window.location.hash = this.value">
-                            <option value="en">English</option>
-                            <option value="ur">اردو</option>
-                        </select>
-                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">🌓</button>
+                    <li>
+                        <a href="#donate" class="btn-donate">Donate Now</a>
                     </li>
-                    <li><a href="#donate" class="btn-donate-nav">Donate Now</a></li>
                 </ul>
             </nav>
         </div>
