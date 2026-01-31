@@ -1,0 +1,235 @@
+/* ============================================
+   Advanced Testimonial Slider
+   ============================================ */
+.testimonials {
+    padding: var(--space-3xl) 0;
+    background: var(--neutral-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slider {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    padding: var(--space-xl);
+    text-align: center;
+}
+
+.testimonial-content {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: var(--space-md);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.testimonial-quote {
+    font-size: var(--space-md);
+    line-height: 1.8;
+    color: var(--neutral-gray);
+    font-style: italic;
+    margin-bottom: var(--space-lg);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--space-lg);
+    font-weight: 700;
+}
+
+.testimonial-info h4 {
+    margin: 0;
+    color: var(--primary-blue);
+    font-size: var(--space-md);
+}
+
+.testimonial-info p {
+    margin: 0;
+    color: var(--neutral-gray);
+    font-size: var(--space-sm);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    background: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* ============================================
+   Newsletter Signup
+   ============================================ */
+.newsletter {
+    background: var(--gradient-primary);
+    padding: var(--space-2xl) 0;
+    color: white;
+    text-align: center;
+}
+
+.newsletter-form {
+    max-width: 600px;
+    margin: var(--space-lg) auto 0;
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newsletter-input {
+    flex: 1;
+    min-width: 250px;
+    padding: var(--space-md) var(--space-lg);
+    border: none;
+    border-radius: var(--space-sm);
+    font-size: var(--space-md);
+}
+
+.newsletter-input:focus {
+    outline: 3px solid var(--accent-gold);
+}
+
+.newsletter-button {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--gradient-gold);
+    color: white;
+    border: none;
+    border-radius: var(--space-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   Progress Bar on Scroll
+   ============================================ */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--gradient-gold);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ============================================
+   Floating Donate Button
+   ============================================ */
+.floating-donate {
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    background: var(--gradient-gold);
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--space-3xl);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    z-index: 999;
+    animation: pulse-float 3s infinite;
+    transition: var(--transition);
+}
+
+.floating-donate:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+}
+
+@keyframes pulse-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ============================================
+   Loading Animation
+   ============================================ */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    width: 100px;
+    animation: fade-pulse 1.5s infinite;
+}
+
+@keyframes fade-pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
