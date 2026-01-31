@@ -37,7 +37,7 @@
             </div>
             
             <!-- Brand Text -->
-            <h2 style="color: #00aaff; font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: 1px;">Alkhidmat Foundation</h2>
+            <h2 style="color: #00aaff; font-family: 'Poppins', sans-serif; font-size: clamp(1.25rem, 3.5vw, 1.75rem); font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: 0.5px;">Alkhidmat Foundation Muzaffargarh</h2>
             <p style="color: rgba(255, 255, 255, 0.7); font-family: 'Inter', sans-serif; font-size: clamp(0.875rem, 2vw, 1rem); margin: 0; letter-spacing: 2px; text-transform: uppercase;">Loading...</p>
             
             <!-- Progress Bar -->
