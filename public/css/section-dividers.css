@@ -44,11 +44,15 @@
 }
 
 .wave-gold {
-    fill: #D4AF37;
+    fill: #fffbf0;
 }
 
 .wave-gray {
     fill: #f8f9fa;
+}
+
+.wave-gradient-light {
+    fill: #f0f7ff;
 }
 
 /* Diagonal Section Cuts */
