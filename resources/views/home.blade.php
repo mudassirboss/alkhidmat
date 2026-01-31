@@ -217,7 +217,7 @@
                 <div class="program-content">
                     <h3 class="program-title">Orphan Care (Aghosh)</h3>
                     <p class="program-desc">Providing love, shelter, education, and a bright future for orphaned children through our Aghosh Homes program.</p>
-                    <a href="#" class="program-link">Learn More →</a>
+                    <a href="{{ route('programs.show', 'orphan-care') }}" class="program-link">Learn More →</a>
                 </div>
             </div>
             
@@ -227,7 +227,7 @@
                 <div class="program-content">
                     <h3 class="program-title">Health Services</h3>
                     <p class="program-desc">Hospitals, medical centers, mobile clinics, and free healthcare for those who need it most across Pakistan.</p>
-                    <a href="#" class="program-link">Learn More →</a>
+                    <a href="{{ route('programs.show', 'healthcare') }}" class="program-link">Learn More →</a>
                 </div>
             </div>
             
@@ -237,7 +237,7 @@
                 <div class="program-content">
                     <h3 class="program-title">Education</h3>
                     <p class="program-desc">Schools, scholarships, vocational training, and the Bano Qabil IT program empowering youth with skills.</p>
-                    <a href="#" class="program-link">Learn More →</a>
+                    <a href="{{ route('programs.show', 'education') }}" class="program-link">Learn More →</a>
                 </div>
             </div>
             
@@ -247,7 +247,7 @@
                 <div class="program-content">
                     <h3 class="program-title">Disaster Management</h3>
                     <p class="program-desc">Rapid response to emergencies, providing relief, rescue operations, and rehabilitation for affected communities.</p>
-                    <a href="#" class="program-link">Learn More →</a>
+                    <a href="{{ route('programs.show', 'disaster-management') }}" class="program-link">Learn More →</a>
                 </div>
             </div>
             

@@ -120,7 +120,7 @@
                     <li><a href="{{ route('volunteer') }}" class="nav-link">Volunteer</a></li>
                     <li><a href="{{ route('news') }}" class="nav-link">News</a></li>
                     <li>
-                        <a href="#donate" class="btn-donate">Donate Now</a>
+                        <a href="{{ route('donate.index') }}" class="btn-donate">Donate Now</a>
                     </li>
                 </ul>
             </nav>
