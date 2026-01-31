@@ -25,6 +25,66 @@
     @yield('styles')
 </head>
 <body>
+    <!-- Premium Page Loader -->
+    <div id="page-loader" style="position: fixed; inset: 0; background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <!-- Loader Content -->
+        <div style="text-align: center;">
+            <!-- Animated Logo/Icon -->
+            <div style="width: 80px; height: 80px; margin: 0 auto 2rem; position: relative;">
+                <div style="position: absolute; inset: 0; border: 4px solid rgba(0, 170, 255, 0.1); border-radius: 50%;"></div>
+                <div style="position: absolute; inset: 0; border: 4px solid transparent; border-top-color: #00aaff; border-right-color: #0052A5; border-radius: 50%; animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;"></div>
+                <div style="position: absolute; inset: 8px; border: 3px solid transparent; border-top-color: #d4af37; border-radius: 50%; animation: spin 1.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;"></div>
+            </div>
+            
+            <!-- Brand Text -->
+            <h2 style="color: #00aaff; font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: 1px;">Alkhidmat Foundation</h2>
+            <p style="color: rgba(255, 255, 255, 0.7); font-family: 'Inter', sans-serif; font-size: clamp(0.875rem, 2vw, 1rem); margin: 0; letter-spacing: 2px; text-transform: uppercase;">Loading...</p>
+            
+            <!-- Progress Bar -->
+            <div style="width: 200px; height: 3px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; margin: 2rem auto 0; overflow: hidden;">
+                <div style="height: 100%; background: linear-gradient(90deg, #00aaff, #0052A5, #d4af37); border-radius: 10px; animation: progress 2s ease-in-out infinite;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inline Loader Animations -->
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        #page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('page-loader').classList.add('loaded');
+                // Remove from DOM after fade out
+                setTimeout(function() {
+                    var loader = document.getElementById('page-loader');
+                    if (loader) loader.remove();
+                }, 500);
+            }, 300); // Small delay for smooth experience
+        });
+        
+        // Fallback: hide after 5 seconds even if page hasn't fully loaded
+        setTimeout(function() {
+            var loader = document.getElementById('page-loader');
+            if (loader && !loader.classList.contains('loaded')) {
+                loader.classList.add('loaded');
+            }
+        }, 5000);
+    </script>
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
     
