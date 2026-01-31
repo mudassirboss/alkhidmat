@@ -94,5 +94,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         // Volunteers
         Route::get('/volunteers', [App\Http\Controllers\Admin\VolunteerController::class, 'index'])->name('volunteers.index');
+        
+        // News (Posts)
+        Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+
+        // Programs
+        Route::get('/programs', [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('programs.index');
+        Route::get('/programs/{program}/edit', [App\Http\Controllers\Admin\ProgramController::class, 'edit'])->name('programs.edit');
+        Route::put('/programs/{program}', [App\Http\Controllers\Admin\ProgramController::class, 'update'])->name('programs.update');
+
+        // Settings
+        Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
+        Route::put('/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
     });
 });

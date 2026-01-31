@@ -38,7 +38,7 @@
                 <div class="icon-box">📍</div>
                 <div>
                     <h4>Address</h4>
-                    <p>Alkhidmat Complex, Multan Road, Muzaffargarh, Punjab, Pakistan</p>
+                    <p>{{ $settings['contact_address'] ?? 'Alkhidmat Complex, Multan Road, Muzaffargarh, Punjab, Pakistan' }}</p>
                 </div>
             </div>
             
@@ -46,8 +46,8 @@
                 <div class="icon-box">📞</div>
                 <div>
                     <h4>Phone</h4>
-                    <p>+92 3XX XXXXXXX</p>
-                    <p>+92 66 XXXXXXX</p>
+                    <p>{{ $settings['contact_phone'] ?? '+92 3XX XXXXXXX' }}</p>
+                    <p>{{ $settings['contact_phone_2'] ?? '' }}</p>
                 </div>
             </div>
             
@@ -55,8 +55,7 @@
                 <div class="icon-box">✉️</div>
                 <div>
                     <h4>Email</h4>
-                    <p>muzaffargarh@alkhidmat.org</p>
-                    <p>info@alkhidmatmzg.org</p>
+                    <p>{{ $settings['contact_email'] ?? 'info@alkhidmatmzg.org' }}</p>
                 </div>
             </div>
 

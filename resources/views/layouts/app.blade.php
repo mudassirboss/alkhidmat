@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Alkhidmat Foundation Muzaffargarh - Service to Humanity with Integrity">
-    <title>@yield('title', 'Alkhidmat Foundation - Service to Humanity')</title>
+    <title>@yield('title', $settings['site_title'] ?? 'Alkhidmat Foundation - Service to Humanity')</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +162,7 @@
         <div class="container" style="position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-xl);">
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: var(--space-md);">Alkhidmat Foundation Muzaffargarh</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: var(--space-md);">{{ $settings['site_title'] ?? 'Alkhidmat Foundation Muzaffargarh' }}</h3>
                     <p style="color: #e0e0e0; line-height: 1.8;">Service to Humanity with Integrity since 1990. Serving the people of Muzaffargarh and beyond with dedication to humanitarian welfare.</p>
                 </div>
                 
@@ -179,25 +179,25 @@
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Contact Info</h4>
                     <p style="color: #e0e0e0; line-height: 1.8;">
-                        Email: muzaffargarh@alkhidmat.org<br>
-                        Phone: +92-XXX-XXXXXXX<br>
-                        Address: Muzaffargarh, Punjab, Pakistan
+                        Email: {{ $settings['contact_email'] ?? 'info@alkhidmatmzg.org' }}<br>
+                        Phone: {{ $settings['contact_phone'] ?? '+92 3XX XXXXXXX' }}<br>
+                        Address: {{ $settings['contact_address'] ?? 'Muzaffargarh, Punjab, Pakistan' }}
                     </p>
                 </div>
                 
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Follow Us</h4>
                     <div style="display: flex; gap: var(--space-md);">
-                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📘</a>
-                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">🐦</a>
-                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📸</a>
-                        <a href="#" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">▶️</a>
+                        <a href="{{ $settings['social_facebook'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📘</a>
+                        <a href="{{ $settings['social_twitter'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">🐦</a>
+                        <a href="{{ $settings['social_instagram'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📸</a>
+                        <a href="{{ $settings['social_youtube'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">▶️</a>
                     </div>
                 </div>
             </div>
             
             <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-md); text-align: center; color: #a0a0a0;">
-                <p>&copy; 2026 Alkhidmat Foundation Muzaffargarh. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} {{ $settings['site_title'] ?? 'Alkhidmat Foundation Muzaffargarh' }}. All rights reserved.</p>
             </div>
         </div>
     </footer>
