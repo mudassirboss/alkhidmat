@@ -176,6 +176,9 @@ if (savedTheme === 'dark') {
 
 // Initialize Advanced Features
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize advanced stats counter
+    new AdvancedStatsCounter();
+
     // Initialize testimonial slider
     new TestimonialSlider();
 
