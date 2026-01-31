@@ -208,6 +208,60 @@
     </div>
 </section>
 
+<!-- Leadership Section -->
+<section class="leadership">
+    <div class="container">
+        <h2 class="section-title reveal">Our Leadership</h2>
+        <p class="section-subtitle reveal">Guidance and inspiration from the visionaries behind our mission</p>
+        
+        <div class="leadership-grid">
+            <!-- Founder -->
+            <div class="leader-card reveal">
+                <img src="{{ asset('founder_portrait_1769864030324.png') }}" alt="Founder" class="leader-img">
+                <h3 class="leader-name">Abdur Shakoor</h3>
+                <p class="leader-title">Founder</p>
+                <p class="leader-quote">"Service to humanity is the highest form of worship. We are committed to reaching every soul in need across Pakistan."</p>
+            </div>
+            
+            <!-- Chairman -->
+            <div class="leader-card reveal">
+                <img src="{{ asset('chairman_portrait_1769863962838.png') }}" alt="Chairman" class="leader-img">
+                <h3 class="leader-name">Dr. Hafeez ur Rehman</h3>
+                <h3 class="leader-title">Chairman</h3>
+                <p class="leader-quote">"Integrity and transparency are the pillars of Alkhidmat. We ensure your trust transforms into real impact on the ground."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media Gallery -->
+<section class="gallery">
+    <div class="container">
+        <h2 class="section-title reveal">Impact in Pictures</h2>
+        <p class="section-subtitle reveal">Visualizing our humanitarian footprint in Muzaffargarh and beyond</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="{{ asset('gallery_aid_distribution_1769863984155.png') }}" alt="Aid Distribution">
+                <div class="gallery-overlay">Food Package Distribution in Muzaffargarh</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="{{ asset('gallery_medical_camp_1769864002661.png') }}" alt="Medical Camp">
+                <div class="gallery-overlay">Free Medical Clinic for Rural Communities</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="{{ asset('images/slider-education.png') }}" alt="Education Impact">
+                <div class="gallery-overlay">Empowering the Next Generation</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="{{ asset('images/slider-water.png') }}" alt="Clean Water Project">
+                <div class="gallery-overlay">Bringing Clean Water to Every Village</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- Mission Section -->
 <section id="about" style="padding: var(--space-3xl) 0; background: white;">
     <div class="container">
@@ -299,6 +353,44 @@
                 <span class="slider-dot active"></span>
                 <span class="slider-dot"></span>
                 <span class="slider-dot"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Zakat Calculator Section -->
+<section id="zakat" class="zakat-calculator">
+    <div class="container">
+        <h2 class="reveal" style="text-align: center; margin-bottom: var(--space-md); color: white;">Zakat Calculator</h2>
+        <p class="reveal" style="text-align: center; margin-bottom: var(--space-xl); opacity: 0.9;">Fulfill your obligation with ease. Calculate your Zakat based on your current assets.</p>
+        
+        <div class="calc-container reveal">
+            <div class="calc-grid">
+                <div class="calc-input-group">
+                    <label for="gold">Gold (Current Value)</label>
+                    <input type="number" id="gold" class="calc-input" placeholder="0.00" min="0">
+                </div>
+                <div class="calc-input-group">
+                    <label for="silver">Silver (Current Value)</label>
+                    <input type="number" id="silver" class="calc-input" placeholder="0.00" min="0">
+                </div>
+                <div class="calc-input-group">
+                    <label for="cash">Cash in Hand / Bank</label>
+                    <input type="number" id="cash" class="calc-input" placeholder="0.00" min="0">
+                </div>
+                <div class="calc-input-group">
+                    <label for="property">Property / Shares / Others</label>
+                    <input type="number" id="property" class="calc-input" placeholder="0.00" min="0">
+                </div>
+            </div>
+            
+            <div class="calc-result">
+                <h3>Total Zakat Due</h3>
+                <div class="calc-result-value">Rs. <span id="zakat-total">0</span></div>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Note: Calculated at 2.5% of total assets exceeding Nisab.</p>
+                <div style="margin-top: var(--space-lg);">
+                    <a href="#donate" class="btn btn-primary">Pay Zakat Now</a>
+                </div>
             </div>
         </div>
     </div>

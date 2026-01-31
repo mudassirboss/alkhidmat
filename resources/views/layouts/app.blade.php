@@ -44,8 +44,15 @@
                     <li><a href="/" class="nav-link">Home</a></li>
                     <li><a href="#programs" class="nav-link">Programs</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#impact" class="nav-link">Our Impact</a></li>
+                    <li><a href="#zakat" class="nav-link">Zakat</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-extra">
+                        <select class="lang-selector" onchange="window.location.hash = this.value">
+                            <option value="en">English</option>
+                            <option value="ur">اردو</option>
+                        </select>
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">🌓</button>
+                    </li>
                     <li><a href="#donate" class="btn-donate-nav">Donate Now</a></li>
                 </ul>
             </nav>

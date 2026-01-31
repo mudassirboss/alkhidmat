@@ -108,10 +108,79 @@ function staggerReveal() {
     });
 }
 
+// Zakat Calculator Logic
+function initZakatCalculator() {
+    const inputs = document.querySelectorAll('.calc-input');
+    const totalDisplay = document.getElementById('zakat-total');
+
+    if (!totalDisplay) return;
+
+    const calculate = () => {
+        let totalAssets = 0;
+        inputs.forEach(input => {
+            totalAssets += parseFloat(input.value) || 0;
+        });
+
+        // 2.5% Zakat calculation
+        const zakatDue = totalAssets * 0.025;
+
+        // Animated counter for result
+        animateValue(totalDisplay, parseFloat(totalDisplay.innerText.replace(/,/g, '')) || 0, zakatDue, 500);
+    };
+
+    inputs.forEach(input => {
+        input.addEventListener('input', calculate);
+    });
+}
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        obj.innerHTML = value.toLocaleString();
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Mobile Menu Toggle
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (navLinks) {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+
+        // Prevent scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    }
+}
+
+// Theme Toggle (Dark Mode)
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    console.log(`🌙 Theme set to: ${isDark ? 'dark' : 'light'}`);
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+}
+
 // Initialize Advanced Features
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize testimonial slider
     new TestimonialSlider();
+
+    // Initialize Zakat calculator
+    initZakatCalculator();
 
     // Newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');

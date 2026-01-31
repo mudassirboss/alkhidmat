@@ -22,27 +22,28 @@
     --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
     --gradient-hero: linear-gradient(135deg, rgba(0, 56, 117, 0.95) 0%, rgba(0, 82, 165, 0.9) 100%);
 
-    /* Typography */
+    /* Fluid Typography (2026 Mobile-First) */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --font-size-h1: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    --font-size-h2: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+    --font-size-h3: clamp(1.5rem, 3vw + 0.25rem, 2.25rem);
 
-    /* Spacing */
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
-    --space-xl: 3rem;
-    --space-2xl: 4rem;
-    --space-3xl: 6rem;
+    /* Fluid Spacing */
+    --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+    --space-sm: clamp(0.5rem, 2vw, 1rem);
+    --space-md: clamp(1rem, 3vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 4vw, 2.5rem);
+    --space-xl: clamp(2.5rem, 6vw, 4rem);
+    --space-2xl: clamp(4rem, 8vw, 6rem);
+    --space-3xl: clamp(6rem, 12vw, 9rem);
 
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
-
-    /* Transitions */
-    --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Shadows & Transitions */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+    --transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ============================================
