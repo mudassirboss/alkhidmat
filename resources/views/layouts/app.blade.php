@@ -112,6 +112,7 @@
                     <li><a href="#about" class="nav-link">About Us</a></li>
                     <li><a href="#zakat" class="nav-link">Zakat</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="{{ route('volunteer') }}" class="nav-link">Volunteer</a></li>
                     <li class="nav-extra">
                         <select class="lang-selector" onchange="window.location.hash = this.value">
                             <option value="en">English</option>
