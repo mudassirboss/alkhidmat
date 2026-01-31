@@ -229,8 +229,13 @@
 /* Section-Specific Styling */
 .section-with-divider {
     position: relative;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section-with-divider .container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Stats Section Enhanced */
@@ -243,6 +248,25 @@
 /* Programs Section Enhanced */
 .programs-enhanced {
     background: #ffffff;
+    position: relative;
+    padding-top: 120px !important;
+}
+
+/* Mission Section Enhanced */
+.mission-enhanced {
+    background: linear-gradient(180deg, #f8f9fa 0%, #f0f7ff 100%);
+    position: relative;
+}
+
+/* Leadership Section Enhanced */
+.leadership-enhanced {
+    background: #ffffff;
+    position: relative;
+}
+
+/* Gallery Section Enhanced */
+.gallery-enhanced {
+    background: linear-gradient(135deg, #fffbf0 0%, #f8f9fa 100%);
     position: relative;
 }
 
