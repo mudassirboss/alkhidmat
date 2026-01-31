@@ -134,31 +134,28 @@
 
     <!-- Footer -->
     <!-- Footer -->
-    <footer class="site-footer" style="background: linear-gradient(135deg, #002d5b 0%, #004080 100%); color: white; padding: 120px 0 40px; position: relative; overflow: hidden;">
-        <!-- Top Wave Divider -->
-        <div class="footer-divider-top" style="position: absolute; top: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2;">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: 100%; height: 60px;">
-                <path fill="#ffffff" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-            </svg>
-        </div>
-
+    <footer class="site-footer" style="background: linear-gradient(135deg, #002d5b 0%, #004080 100%); color: white; padding: 80px 0 40px; position: relative; overflow: hidden;">
         <!-- Floating Particles -->
         <div class="particles-container">
-            <div class="particle particle-sm particle-white"></div>
-            <div class="particle particle-md particle-gold"></div>
-            <div class="particle particle-sm particle-white"></div>
-            <div class="particle particle-lg particle-gold"></div>
-            <div class="particle particle-md particle-white"></div>
-            <div class="particle particle-sm particle-gold"></div>
-            <div class="particle particle-md particle-white"></div>
-            <div class="particle particle-lg particle-gold"></div>
+            <div class="particle particle-sm particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-md particle-gold" style="opacity: 0.5;"></div>
+            <div class="particle particle-sm particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-lg particle-gold" style="opacity: 0.5;"></div>
+            <div class="particle particle-md particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-sm particle-gold" style="opacity: 0.5;"></div>
+            <div class="particle particle-md particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-lg particle-gold" style="opacity: 0.5;"></div>
+            <div class="particle particle-sm particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-md particle-gold" style="opacity: 0.5;"></div>
+            <div class="particle particle-lg particle-white" style="opacity: 0.6;"></div>
+            <div class="particle particle-sm particle-gold" style="opacity: 0.5;"></div>
         </div>
 
         <!-- Background Shapes -->
         <div class="shapes-background">
-            <div class="floating-shape shape-circle shape-lg theme-blue pos-1" data-speed="0.1" style="opacity: 0.1;"></div>
-            <div class="floating-shape shape-hexagon shape-xl theme-gold pos-2" data-speed="0.15" style="opacity: 0.08;"></div>
-            <div class="floating-shape shape-blob shape-md theme-blue pos-8" data-speed="0.2" style="opacity: 0.1;"></div>
+            <div class="floating-shape shape-circle shape-lg theme-blue pos-1" data-speed="0.1" style="opacity: 0.15; background: rgba(255,255,255,0.05);"></div>
+            <div class="floating-shape shape-hexagon shape-xl theme-gold pos-2" data-speed="0.15" style="opacity: 0.12; background: rgba(212, 175, 55, 0.1);"></div>
+            <div class="floating-shape shape-blob shape-md theme-blue pos-8" data-speed="0.2" style="opacity: 0.15; background: rgba(255,255,255,0.05);"></div>
         </div>
 
         <div class="container" style="position: relative; z-index: 2;">
