@@ -27,9 +27,8 @@
         </div>
 
         <div style="margin-bottom: 20px;">
-            <label style="display:block; margin-bottom:8px; font-weight:600;">Content (HTML supported)</label>
-            <textarea name="content" rows="10" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-family:inherit;"></textarea>
-            <small style="color:#888;">Use &lt;p&gt;, &lt;h3&gt;, etc. for formatting.</small>
+            <label style="display:block; margin-bottom:8px; font-weight:600;">Content (Wordpress-style Editor)</label>
+            <textarea name="content" class="rich-editor" rows="10" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-family:inherit;"></textarea>
         </div>
 
         <div style="margin-bottom: 20px;">

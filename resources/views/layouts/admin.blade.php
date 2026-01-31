@@ -119,6 +119,21 @@
         .status-pending { background: #fff3cd; color: #856404; }
         .status-verified { background: #d4edda; color: #155724; }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <!-- TinyMCE (WordPress-like Editor) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" integrity="sha512-6JR4bbn8rCKvrkOGMclejYkBbTEqYuYT/O/oThHQ/u29up/FusKT0qA6FhXZ2M+q5B951vG9F4OqGp3Vbdp7dw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            tinymce.init({
+                selector: '.rich-editor',
+                height: 400,
+                plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help wordcount',
+                toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | code',
+                branding: false,
+                promotion: false
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -134,6 +149,8 @@
             <a href="{{ route('admin.posts.index') }}" class="nav-item {{ request()->routeIs('admin.posts.*') ? 'active' : '' }}">📰 News & Stories</a>
             <a href="{{ route('admin.programs.index') }}" class="nav-item {{ request()->routeIs('admin.programs.*') ? 'active' : '' }}">🎗️ Programs</a>
             <a href="{{ route('admin.settings.index') }}" class="nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">⚙️ General Settings</a>
+            <a href="{{ route('admin.subscribers.index') }}" class="nav-item {{ request()->routeIs('admin.subscribers.*') ? 'active' : '' }}">📧 Subscribers</a>
+            <a href="{{ route('admin.galleries.index') }}" class="nav-item {{ request()->routeIs('admin.galleries.*') ? 'active' : '' }}">📷 Gallery</a>
             
             <form action="{{ route('admin.logout') }}" method="POST">
                 @csrf

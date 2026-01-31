@@ -18,8 +18,9 @@ class Donation extends Model
         'phone',
         'purpose',
         'payment_method',
-        'transaction_id',
-        'status',
+        'transaction_id', // For online payments if any
+        'receipt_path',   // For bank transfer proof
+        'status', // pending, verified, rejected
         'admin_notes',
     ];
 }

@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <form action="{{ route('donate.store') }}" method="POST" id="donationForm">
+        <form action="{{ route('donate.store') }}" method="POST" id="donationForm" enctype="multipart/form-data">
             @csrf
             <div class="donation-form-container">
                 
@@ -117,7 +117,7 @@
                         <input type="radio" name="payment_method" value="card" checked>
                         <span>Debit/Credit Card</span>
                     </label>
-                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify: center; gap: 10px;">
                         <input type="radio" name="payment_method" value="jazzcash">
                         <span>JazzCash</span>
                     </label>

@@ -29,10 +29,18 @@ class DonationController extends Controller
             'purpose' => 'nullable|string',
             'payment_method' => 'required|string',
             'transaction_id' => 'nullable|string',
+            'receipt_file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
         // Use amount_final if available (from hidden field which handles custom amount logic)
         $amount = $request->amount_final ?? $request->amount;
+
+        $receiptPath = null;
+        if ($request->hasFile('receipt_file')) {
+            $fileName = time().'_receipt.'.$request->receipt_file->extension();
+            $request->receipt_file->move(public_path('uploads/receipts'), $fileName);
+            $receiptPath = $fileName;
+        }
 
         $donation = \App\Models\Donation::create([
             'amount' => $amount,
@@ -43,6 +51,7 @@ class DonationController extends Controller
             'purpose' => $request->purpose,
             'payment_method' => $request->payment_method,
             'transaction_id' => $request->transaction_id,
+            'receipt_path' => $receiptPath,
             'status' => 'pending', // Pending manual verification
         ]);
 

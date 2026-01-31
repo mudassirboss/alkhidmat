@@ -57,6 +57,12 @@ Route::post('/volunteer/submit', function (Illuminate\Http\Request $request) {
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.detail');
 
+// Newsletter
+Route::post('/subscribe', [App\Http\Controllers\SubscriberController::class, 'store'])->name('subscribe');
+
+// Gallery
+Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
+
 
 // Donation Routes
 Route::get('/donate', [DonationController::class, 'index'])->name('donate.index');
@@ -106,5 +112,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Settings
         Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
         Route::put('/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+
+        // Subscribers
+        Route::get('/subscribers', [App\Http\Controllers\Admin\SubscriberController::class, 'index'])->name('subscribers.index');
+
+        // Gallery
+        Route::get('/galleries', [App\Http\Controllers\Admin\GalleryController::class, 'index'])->name('galleries.index');
+        Route::post('/galleries', [App\Http\Controllers\Admin\GalleryController::class, 'store'])->name('galleries.store');
+        Route::delete('/galleries/{gallery}', [App\Http\Controllers\Admin\GalleryController::class, 'destroy'])->name('galleries.destroy');
     });
 });

@@ -167,13 +167,19 @@
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: var(--space-xs);"><a href="#programs" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Programs</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#about" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">About Us</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#impact" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Impact</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#donate" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Donate</a></li>
-                    </ul>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Newsletter</h4>
+                    <p style="color: #e0e0e0; line-height: 1.6; font-size: 0.9rem; margin-bottom: 15px;">Subscribe to get the latest updates on our relief work.</p>
+                    
+                    @if(session('success') && !request()->routeIs('contact.*') && !request()->routeIs('volunteer.*')) 
+                    <!-- Simple check to avoid conflict, ideally use named bags -->
+                    <div style="color: #4cd137; font-size: 0.9rem; margin-bottom: 10px;">{{ session('success') }}</div>
+                    @endif
+
+                    <form action="{{ route('subscribe') }}" method="POST" style="display: flex; gap: 5px;">
+                        @csrf
+                        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 4px; border: none; flex: 1; min-width: 0;">
+                        <button type="submit" style="padding: 10px 15px; background: var(--accent-gold); border: none; border-radius: 4px; color: white; cursor: pointer; font-weight: bold;">Join</button>
+                    </form>
                 </div>
                 
                 <div>
@@ -188,8 +194,9 @@
                 <div>
                     <h4 style="color: white; margin-bottom: var(--space-md);">Follow Us</h4>
                     <div style="display: flex; gap: var(--space-md);">
-                        <a href="{{ $settings['social_facebook'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📘</a>
-                        <a href="{{ $settings['social_twitter'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">🐦</a>
+                        <li style="margin-bottom: var(--space-xs);"><a href="#impact" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Impact</a></li>
+                        <li style="margin-bottom: var(--space-xs);"><a href="{{ route('gallery') }}" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Gallery</a></li>
+                        <li style="margin-bottom: var(--space-xs);"><a href="#donate" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Donate</a></li>
                         <a href="{{ $settings['social_instagram'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📸</a>
                         <a href="{{ $settings['social_youtube'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">▶️</a>
                     </div>

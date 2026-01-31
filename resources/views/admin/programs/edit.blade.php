@@ -25,7 +25,7 @@
 
         <div style="margin-bottom: 20px;">
             <label style="display:block; margin-bottom:8px; font-weight:600;">Description</label>
-            <textarea name="description" rows="5" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-family:inherit;">{{ $program->description }}</textarea>
+            <textarea name="description" class="rich-editor" rows="5" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-family:inherit;">{{ $program->description }}</textarea>
         </div>
 
         <!-- Hero Image -->

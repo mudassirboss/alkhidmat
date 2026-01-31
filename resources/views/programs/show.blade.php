@@ -22,7 +22,7 @@
         <div class="col-md-7 reveal">
             <h2 style="color: #004080; margin-bottom: 30px;">About The Program</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
-                {{ $program['description'] }}
+                {!! $program['description'] !!}
             </p>
             
             <h3 style="color: #004080; margin-bottom: 20px;">Key Features</h3>

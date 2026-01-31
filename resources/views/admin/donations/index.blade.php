@@ -22,31 +22,23 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Donor Name</th>
+                <th>Name</th>
                 <th>Amount</th>
-                <th>Method</th>
-                <th>Transaction ID</th>
-                <th>Status</th>
+                <th>Method / Receipt</th>
                 <th>Date</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($donations as $donation)
             <tr>
-                <td>#{{ $donation->id }}</td>
+                <td>{{ $donation->id }}</td>
                 <td>
-                    <div style="font-weight:600;">{{ $donation->name }}</div>
-                    <div style="font-size:0.85rem; color:#888;">{{ $donation->email }}</div>
+                    <strong>{{ $donation->name }}</strong><br>
+                    <small>{{ $donation->email }}</small>
                 </td>
                 <td>PKR {{ number_format($donation->amount) }}</td>
-                <td>{{ ucfirst($donation->payment_method) }}</td>
-                <td>
-                    @if($donation->transaction_id)
-                        <code style="background:#eee; padding:2px 5px; border-radius:4px;">{{ $donation->transaction_id }}</code>
-                    @else
-                        <span style="color:#aaa;">N/A</span>
-                    @endif
                 </td>
                 <td>
                     <span class="status-badge status-{{ $donation->status == 'completed' ? 'verified' : ($donation->status == 'pending' ? 'pending' : 'failed') }}">
