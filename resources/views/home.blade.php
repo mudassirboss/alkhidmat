@@ -257,6 +257,14 @@
                 <img src="{{ asset('images/slider-water.png') }}" alt="Clean Water Project" loading="lazy" decoding="async">
                 <div class="gallery-overlay">Bringing Clean Water to Every Village</div>
             </div>
+            <div class="gallery-item reveal">
+                <img src="{{ asset('images/gallery-orphan-care.png') }}" alt="Orphan Care" loading="lazy" decoding="async">
+                <div class="gallery-overlay">Empowering orphans with education and hope</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="{{ asset('images/gallery-disaster-relief.png') }}" alt="Disaster Relief" loading="lazy" decoding="async">
+                <div class="gallery-overlay">Emergency aid during floods and disasters</div>
+            </div>
         </div>
     </div>
 </section>
