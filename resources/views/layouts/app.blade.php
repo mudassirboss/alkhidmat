@@ -17,8 +17,10 @@
     <!-- Custom CSS (with preload for performance) -->
     <link rel="preload" href="{{ asset('css/app.css') }}" as="style">
     <link rel="preload" href="{{ asset('css/phase2-styles.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/animated-backgrounds.css') }}" as="style">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/phase2-styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animated-backgrounds.css') }}">
     <link rel="stylesheet" href="{{ asset('css/advanced.css') }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}" media="print" onload="this.media='all'">
     
