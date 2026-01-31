@@ -13,6 +13,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/phase2-styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/advanced.css') }}">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}">
     
