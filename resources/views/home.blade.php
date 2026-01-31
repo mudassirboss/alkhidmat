@@ -111,14 +111,21 @@
 </div>
 
 <!-- Stats Counter Section -->
-<section class="stats stats-bg-animated parallax-section">
-    <!-- Animated Background -->
-    <div class="floating-shapes parallax-bg">
-        <div class="shape shape-square shape-4"></div>
-        <div class="shape shape-circle shape-5"></div>
+<section class="stats stats-enhanced section-with-divider">
+    <!-- Top Wave Divider -->
+    <div class="section-divider-top">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-white"></path>
+        </svg>
     </div>
-    <div class="gradient-orb orb-blue orb-3"></div>
-    <div class="pattern-overlay"></div>
+    
+    <!-- Decorative Background -->
+    <div class="decorative-bg">
+        <div class="islamic-pattern"></div>
+        <div class="dots-grid"></div>
+        <div class="glow-effect glow-blue glow-1"></div>
+        <div class="glow-effect glow-gold glow-2"></div>
+    </div>
     
     <div class="container">
         <div class="stats-grid">
@@ -153,10 +160,31 @@
             </div>
         </div>
     </div>
+    
+    <!-- Bottom Wave Divider -->
+    <div class="section-divider-bottom">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="wave-white"></path>
+        </svg>
+    </div>
 </section>
 
 <!-- Programs Section -->
-<section id="programs" class="programs">
+<section id="programs" class="programs programs-enhanced section-with-divider">
+    <!-- Diagonal Top Cut -->
+    <div class="diagonal-cut-top">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 0 0 120z" class="wave-gray"></path>
+        </svg>
+    </div>
+    
+    <!-- Decorative Background -->
+    <div class="decorative-bg">
+        <div class="hexagon-pattern"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+    </div>
+    
     <div class="container">
         <h2 class="section-title reveal">Our Programs</h2>
         <p class="section-subtitle reveal">Comprehensive humanitarian services addressing critical needs across Pakistan</p>
