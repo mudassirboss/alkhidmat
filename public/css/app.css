@@ -340,49 +340,99 @@ h3 {
 }
 
 /* ============================================
-   Stats Counter
+   Stats Counter - Advanced 3D
    ============================================ */
 .stats {
-    background: white;
-    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: var(--space-3xl) 0;
     margin-top: -50px;
     position: relative;
     z-index: 10;
+    perspective: 1500px;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .stat-card {
     text-align: center;
-    padding: var(--space-lg);
-    border-radius: 16px;
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: 20px;
     background: white;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    box-shadow:
+        0 10px 40px rgba(0, 82, 165, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    transform-style: preserve-3d;
+    border: 1px solid rgba(0, 82, 165, 0.05);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
 }
 
 .stat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-20px) rotateX(5deg) rotateY(2deg) scale(1.05);
+    box-shadow:
+        0 30px 80px rgba(0, 82, 165, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.stat-card:hover::before {
+    opacity: 0.03;
+}
+
+.stat-card:hover .stat-number {
+    transform: translateZ(30px) scale(1.1);
+    text-shadow:
+        0 10px 30px rgba(0, 82, 165, 0.3),
+        0 0 40px rgba(0, 82, 165, 0.1);
+}
+
+.stat-card:hover .stat-label {
+    transform: translateZ(15px);
+    color: var(--primary-blue);
 }
 
 .stat-number {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 800;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     color: var(--neutral-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
 /* ============================================
