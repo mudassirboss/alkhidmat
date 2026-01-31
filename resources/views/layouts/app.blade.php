@@ -112,6 +112,7 @@
 
     <!-- JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/stats-counter.js') }}"></script>
     <script src="{{ asset('js/advanced.js') }}"></script>
     <script src="{{ asset('js/hero-slider.js') }}"></script>
     @yield('scripts')
