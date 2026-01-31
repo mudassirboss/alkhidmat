@@ -111,6 +111,30 @@
 
 <!-- Stats Counter Section -->
 <section class="stats stats-enhanced section-with-divider">
+    <!-- Floating Particles -->
+    <div class="particles-container">
+        <div class="particle particle-sm particle-blue"></div>
+        <div class="particle particle-md particle-blue"></div>
+        <div class="particle particle-sm particle-gold"></div>
+        <div class="particle particle-lg particle-blue"></div>
+        <div class="particle particle-md particle-white"></div>
+        <div class="particle particle-sm particle-blue"></div>
+        <div class="particle particle-md particle-gold"></div>
+        <div class="particle particle-lg particle-white"></div>
+        <div class="particle particle-sm particle-blue"></div>
+        <div class="particle particle-md particle-blue"></div>
+        <div class="particle particle-sm particle-gold"></div>
+        <div class="particle particle-lg particle-blue"></div>
+        <div class="particle particle-md particle-white"></div>
+        <div class="particle particle-sm particle-blue"></div>
+        <div class="particle particle-md particle-gold"></div>
+        <div class="particle particle-lg particle-blue"></div>
+        <div class="particle particle-sm particle-white"></div>
+        <div class="particle particle-md particle-blue"></div>
+        <div class="particle particle-sm particle-gold"></div>
+        <div class="particle particle-lg particle-blue"></div>
+    </div>
+    
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card reveal">
