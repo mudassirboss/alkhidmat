@@ -28,7 +28,7 @@ class DonationController extends Controller
             'phone' => 'nullable|string',
             'purpose' => 'nullable|string',
             'payment_method' => 'required|string',
-            'transaction_id' => 'nullable|string',
+            'transaction_id' => 'required|string',
             'receipt_file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 

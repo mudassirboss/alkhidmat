@@ -564,8 +564,8 @@
                 Your donation can transform lives. Every contribution helps us provide food, shelter, education, and healthcare to those who need it most.
             </p>
             <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                <a href="#" class="btn btn-primary">Donate Now</a>
-                <a href="#" class="btn btn-secondary">Become a Volunteer</a>
+                <a href="{{ route('donate.index') }}" class="btn btn-primary">Donate Now</a>
+                <a href="{{ route('volunteer') }}" class="btn btn-secondary">Become a Volunteer</a>
             </div>
         </div>
     </div>

@@ -112,55 +112,54 @@
 
                 <!-- Payment Method -->
                 <h3 class="mb-4 mt-4">Payment Method</h3>
-                <div class="payment-methods" style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
-                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <input type="radio" name="payment_method" value="card" checked>
-                        <span>Debit/Credit Card</span>
-                    </label>
-                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify: center; gap: 10px;">
-                        <input type="radio" name="payment_method" value="jazzcash">
-                        <span>JazzCash</span>
-                    </label>
-                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <input type="radio" name="payment_method" value="easypaisa">
-                        <span>EasyPaisa</span>
-                    </label>
-                    <label class="amount-btn" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <input type="radio" name="payment_method" value="bank">
-                        <span>Bank Transfer</span>
+                <div class="payment-methods" style="margin-bottom: 30px;">
+                    <label class="amount-btn selected" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: default;">
+                        <input type="radio" name="payment_method" value="bank" checked onclick="return false;">
+                        <span><i class="fas fa-university"></i> Bank Transfer / Online Deposit</span>
                     </label>
                 </div>
 
                 <!-- Payment Instructions & Details -->
-                <div id="paymentInstructions" style="display:none; background: #f0f7ff; padding: 20px; border-radius: 8px; border: 1px solid #cce5ff; margin-bottom: 30px;">
-                    <h4 style="margin-top:0; color: #004080;">Payment Details</h4>
-                    <p class="mb-2">Please transfer the amount to the following account:</p>
+                <div id="paymentInstructions" style="display:block; background: #f0f7ff; padding: 25px; border-radius: 12px; border: 1px solid #cce5ff; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <h4 style="margin-top:0; color: #004080; border-bottom: 1px solid #dbeafe; padding-bottom: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-info-circle"></i> Transfer Details
+                    </h4>
                     
-                    <div id="jazzcashDetails" class="method-details" style="display:none;">
-                        <strong>JazzCash:</strong><br>
-                        Account Title: Alkhidmat Foundation<br>
-                        Account Number: 0300-1234567<br>
-                        Till ID: 00112233
-                    </div>
-                    
-                    <div id="easypaisaDetails" class="method-details" style="display:none;">
-                        <strong>EasyPaisa:</strong><br>
-                        Account Title: Alkhidmat Foundation<br>
-                        Account Number: 0345-1234567
-                    </div>
-                    
-                    <div id="bankDetails" class="method-details" style="display:none;">
-                        <strong>Bank Transfer:</strong><br>
-                        Bank: Meezan Bank<br>
-                        Account Title: Alkhidmat Foundation Muzaffargarh<br>
-                        Account No: 0101-01010101-01<br>
-                        IBAN: PK65 MEZN 0000 0000 0000 0000
+                    <div class="bank-details-card" style="background: white; padding: 20px; border-radius: 8px; border-left: 5px solid #004080;">
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #004080; display: block; font-size: 1.1rem; margin-bottom: 5px;">ONLINE ACCOUNT (JS BANK)</strong>
+                            <div style="font-family: monospace; font-size: 1.1rem; background: #f8fafc; padding: 8px; border-radius: 4px;">PK62JSBL9560000000212088</div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #004080; display: block; font-size: 1.1rem; margin-bottom: 5px;">MOBILE BANKING (JS BANK)</strong>
+                            <div style="font-family: monospace; font-size: 1.1rem; background: #f8fafc; padding: 8px; border-radius: 4px;">212088</div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <span style="color: #64748b; font-size: 0.9rem;">Account Title</span>
+                                <div style="font-weight: 700; color: #334155;">AL KHIDMAT FOUNDATION DISTT</div>
+                            </div>
+                            <div>
+                                <span style="color: #64748b; font-size: 0.9rem;">Contact Us</span>
+                                <div style="font-weight: 700; color: #334155;">0330-9222977 / 0331-3138888</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group mt-3">
-                        <label class="form-label">Transaction ID (Required)</label>
-                        <input type="text" name="transaction_id" id="transactionId" class="form-control" placeholder="e.g. TID123456789">
-                        <small style="color:red; display:none;" id="tidError">Please enter the Transaction ID to verify your donation.</small>
+                    <div class="row mt-4">
+                        <div class="col-md-6 form-group">
+                            <label class="form-label" style="font-weight: 600;">Transaction ID <span style="color:red">*</span></label>
+                            <input type="text" name="transaction_id" id="transactionId" class="form-control" placeholder="e.g. TID-123456789 or Reference No." required>
+                            <small class="text-muted">Please enter the transaction reference number provided by your bank.</small>
+                            <small style="color:red; display:none;" id="tidError">Transaction ID is required for verification.</small>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="form-label" style="font-weight: 600;">Upload Transaction Slip (Optional)</label>
+                            <input type="file" name="receipt_file" class="form-control" accept="image/*,application/pdf">
+                            <small class="text-muted">Attach a screenshot or photo of the receipt.</small>
+                        </div>
                     </div>
                 </div>
 
@@ -223,36 +222,12 @@
         }
     }
 
-    // Payment Method Selection Logic
-    const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
-    paymentRadios.forEach(radio => {
-        radio.addEventListener('change', function() {
-            const method = this.value;
-            const instructions = document.getElementById('paymentInstructions');
-            const details = document.querySelectorAll('.method-details');
-            
-            // Hide all details initially
-            details.forEach(d => d.style.display = 'none');
-            
-            if (method !== 'card') {
-                instructions.style.display = 'block';
-                document.getElementById(method + 'Details').style.display = 'block';
-                document.getElementById('transactionId').required = true;
-            } else {
-                instructions.style.display = 'none';
-                document.getElementById('transactionId').required = false;
-            }
-        });
-    });
-
     function validateDonation() {
-        const method = document.querySelector('input[name="payment_method"]:checked').value;
-        if (method !== 'card') {
-            const tid = document.getElementById('transactionId').value;
-            if (!tid) {
-                document.getElementById('tidError').style.display = 'block';
-                return false;
-            }
+        const tid = document.getElementById('transactionId').value;
+        if (!tid) {
+            document.getElementById('tidError').style.display = 'block';
+            document.getElementById('transactionId').focus();
+            return false;
         }
         return true;
     }
