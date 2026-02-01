@@ -51,7 +51,14 @@ class ProgramController extends Controller
         }
         $program->stats = $stats;
 
-        if ($request->hasFile('image_hero')) {
+        if ($request->filled('cropped_image')) {
+            $image = $request->input('cropped_image');
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = time() . '_hero.png';
+            \Illuminate\Support\Facades\File::put(public_path('images/') . $imageName, base64_decode($image));
+            $program->image_hero = $imageName;
+        } elseif ($request->hasFile('image_hero')) {
             $imageName = time().'_hero.'.$request->image_hero->extension();  
             $request->image_hero->move(public_path('images'), $imageName);
             $program->image_hero = $imageName;

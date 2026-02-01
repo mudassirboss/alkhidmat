@@ -33,7 +33,15 @@ class PostController extends Controller
         $post->slug = Str::slug($request->title);
         $post->published_at = now();
 
-        if ($request->hasFile('image')) {
+        if ($request->filled('cropped_image')) {
+            $image = $request->input('cropped_image');
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = time() . '.png';
+            
+            \Illuminate\Support\Facades\File::put(public_path('images/') . $imageName, base64_decode($image));
+            $post->image = $imageName;
+        } elseif ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();  
             $request->image->move(public_path('images'), $imageName);
             $post->image = $imageName;
@@ -62,7 +70,15 @@ class PostController extends Controller
         // Only update slug if title changed (optional, maybe keep stable URL)
         // $post->slug = Str::slug($request->title); 
 
-        if ($request->hasFile('image')) {
+        if ($request->filled('cropped_image')) {
+            $image = $request->input('cropped_image');
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = time() . '.png';
+            
+            \Illuminate\Support\Facades\File::put(public_path('images/') . $imageName, base64_decode($image));
+            $post->image = $imageName;
+        } elseif ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();  
             $request->image->move(public_path('images'), $imageName);
             $post->image = $imageName;

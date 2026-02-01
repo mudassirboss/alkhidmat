@@ -24,7 +24,13 @@ class SliderController extends Controller
         ]);
 
         $imageName = null;
-        if ($request->hasFile('image')) {
+        if ($request->filled('cropped_image')) {
+            $image = $request->input('cropped_image');
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = time() . '_main.png';
+            \Illuminate\Support\Facades\File::put(public_path('images/sliders/') . $imageName, base64_decode($image));
+        } elseif ($request->hasFile('image')) {
             $imageName = time() . '_main.' . $request->image->extension();
             $request->image->move(public_path('images/sliders'), $imageName);
         }
@@ -78,7 +84,18 @@ class SliderController extends Controller
             'is_active' => $request->has('is_active')
         ];
 
-        if ($request->hasFile('image')) {
+        if ($request->filled('cropped_image')) {
+            // Delete old image
+            if ($slider->image_path && file_exists(public_path('images/sliders/' . $slider->image_path))) {
+                @unlink(public_path('images/sliders/' . $slider->image_path));
+            }
+            $image = $request->input('cropped_image');
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = time() . '_main.png';
+            \Illuminate\Support\Facades\File::put(public_path('images/sliders/') . $imageName, base64_decode($image));
+            $data['image_path'] = $imageName;
+        } elseif ($request->hasFile('image')) {
             // Delete old image
             if ($slider->image_path && file_exists(public_path('images/sliders/' . $slider->image_path))) {
                 @unlink(public_path('images/sliders/' . $slider->image_path));
