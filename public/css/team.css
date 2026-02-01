@@ -43,7 +43,8 @@
 .hierarchy-level {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 25px;
+    /* Reduced gap from 40px */
     margin-bottom: 40px;
     flex-wrap: wrap;
     position: relative;
@@ -64,7 +65,8 @@
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 20px;
-    width: 280px;
+    width: 250px;
+    /* Reduced width from 280px */
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
