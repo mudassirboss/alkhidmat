@@ -13,15 +13,15 @@
                 
                 @if($slide->layout == 'split-right')
                     <!-- Split Layout: Content Left, Image Right -->
-                    <div class="split-layout-container" style="display:flex; height:100%; width:100%; background: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'linear-gradient(135deg, #004080 0%, #002d5b 100%)' }}; background-size:cover; background-position:center; position:relative;">
+                    <div class="split-layout-container" style="background-image: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'none' }}; background-color: #004080;">
                          @if($slide->background_image_path)
-                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,40,90,0.85);"></div> <!-- Overlay for readability -->
+                            <div class="split-overlay"></div> <!-- Overlay for readability -->
                         @endif
-                        <div class="split-content" style="flex:1; display:flex; align-items:center; justify-content:center; padding:50px; position:relative; z-index:2;">
-                            <div class="slide-text">
-                                <h1 class="slide-title reveal" style="font-size:3.5rem; text-align:left;">{{ $slide->title }}</h1>
-                                <p class="slide-subtitle reveal" style="text-align:left; font-size:1.2rem; opacity:0.9;">{{ $slide->subtitle }}</p>
-                                <div class="slide-cta" style="justify-content:flex-start;">
+                        <div class="split-content leading-content">
+                            <div class="slide-text split-text-left">
+                                <h1 class="slide-title reveal">{{ $slide->title }}</h1>
+                                <p class="slide-subtitle reveal">{{ $slide->subtitle }}</p>
+                                <div class="slide-cta split-cta-left">
                                     @if($slide->button_text)
                                         <a href="{{ $slide->button_link ?? '#' }}" class="btn btn-primary">{{ $slide->button_text }}</a>
                                     @endif
@@ -31,25 +31,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="split-image" style="flex:1; background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}'); background-size:cover; background-position:center; position:relative; z-index:2;">
-                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div> <!-- Fade blend -->
+                        <div class="split-image" style="background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}');">
+                            <div class="split-image-overlay-left" style="background: linear-gradient(to right, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div> <!-- Fade blend -->
                         </div>
                     </div>
 
                 @elseif($slide->layout == 'split-left')
                     <!-- Split Layout: Image Left, Content Right -->
-                    <div class="split-layout-container" style="display:flex; height:100%; width:100%; background: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'linear-gradient(135deg, #004080 0%, #002d5b 100%)' }}; background-size:cover; background-position:center; position:relative;">
+                    <div class="split-layout-container" style="background-image: {{ $slide->background_image_path ? 'url('.asset('images/sliders/'.$slide->background_image_path).')' : 'none' }}; background-color: #004080;">
                         @if($slide->background_image_path)
-                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,40,90,0.85);"></div>
+                            <div class="split-overlay"></div>
                         @endif
-                        <div class="split-image" style="flex:1; background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}'); background-size:cover; background-position:center; position:relative; z-index:2;">
-                            <div style="position:absolute; top:0; right:0; width:100%; height:100%; background: linear-gradient(to left, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div>
+                        <div class="split-image" style="background-image: url('{{ asset('images/sliders/' . $slide->image_path) }}');">
+                            <div class="split-image-overlay-right" style="background: linear-gradient(to left, {{ $slide->background_image_path ? 'rgba(0,40,90,0.85)' : '#004080' }} 0%, transparent 20%);"></div>
                         </div>
-                        <div class="split-content" style="flex:1; display:flex; align-items:center; justify-content:center; padding:50px; position:relative; z-index:2;">
-                            <div class="slide-text">
-                                <h1 class="slide-title reveal" style="font-size:3.5rem; text-align:left;">{{ $slide->title }}</h1>
-                                <p class="slide-subtitle reveal" style="text-align:left; font-size:1.2rem; opacity:0.9;">{{ $slide->subtitle }}</p>
-                                <div class="slide-cta" style="justify-content:flex-start;">
+                        <div class="split-content trailing-content">
+                            <div class="slide-text split-text-left">
+                                <h1 class="slide-title reveal">{{ $slide->title }}</h1>
+                                <p class="slide-subtitle reveal">{{ $slide->subtitle }}</p>
+                                <div class="slide-cta split-cta-left">
                                     @if($slide->button_text)
                                         <a href="{{ $slide->button_link ?? '#' }}" class="btn btn-primary">{{ $slide->button_text }}</a>
                                     @endif
@@ -327,21 +327,22 @@
         <p class="section-subtitle reveal">Guidance and inspiration from the visionaries behind our mission</p>
         
         <div class="leadership-grid">
-            <!-- Founder -->
+            @foreach($leadership as $leader)
             <div class="leader-card reveal">
-                <img src="{{ asset('images/founder-portrait.png') }}" alt="Founder" class="leader-img" loading="lazy" decoding="async">
-                <h3 class="leader-name">Abdur Shakoor</h3>
-                <p class="leader-title">Founder</p>
-                <p class="leader-quote">"Service to humanity is the highest form of worship. We are committed to reaching every soul in need across Pakistan."</p>
+                @if($leader->image_path)
+                    <img src="{{ asset('images/team/' . $leader->image_path) }}" alt="{{ $leader->name }}" class="leader-img" loading="lazy" decoding="async">
+                @else
+                    <div style="width: 150px; height: 150px; background: #ddd; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #aaa;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                @endif
+                <h3 class="leader-name">{{ $leader->name }}</h3>
+                <p class="leader-title">{{ $leader->role }}</p>
+                @if($leader->leadership_quote)
+                    <p class="leader-quote">"{{ $leader->leadership_quote }}"</p>
+                @endif
             </div>
-            
-            <!-- Chairman -->
-            <div class="leader-card reveal">
-                <img src="{{ asset('images/chairman-portrait.png') }}" alt="Chairman" class="leader-img" loading="lazy" decoding="async">
-                <h3 class="leader-name">Dr. Hafeez ur Rehman</h3>
-                <p class="leader-title">Chairman</p>
-                <p class="leader-quote">"Integrity and transparency are the pillars of Alkhidmat. We ensure your trust transforms into real impact on the ground."</p>
-            </div>
+            @endforeach
         </div>
     </div>
     
@@ -533,7 +534,7 @@
                 <h3>Total Zakat Due</h3>
                 <div class="calc-result-value">Rs. <span id="zakat-total">0</span></div>
                 <p style="font-size: 0.9rem; opacity: 0.8;">Note: Calculated at 2.5% of total assets exceeding Nisab.</p>
-                <div style="margin-top: var(--space-lg);">
+                <div class="zakat-btn-container">
                     <a href="#donate" class="btn btn-primary">Pay Zakat Now</a>
                 </div>
             </div>

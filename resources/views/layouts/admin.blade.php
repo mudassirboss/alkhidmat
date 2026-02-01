@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Cropper.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
     <style>
         :root {
             --primary: #004080;
@@ -264,6 +268,9 @@
                 </a>
                 <a href="{{ route('admin.volunteers.index') }}" class="nav-item {{ request()->routeIs('admin.volunteers.*') ? 'active' : '' }}">
                     <i class="fas fa-users-cog"></i> Volunteers
+                </a>
+                <a href="{{ route('admin.team-members.index') }}" class="nav-item {{ request()->routeIs('admin.team-members.*') ? 'active' : '' }}">
+                    <i class="fas fa-user-tie"></i> Our Team
                 </a>
                 <a href="{{ route('admin.posts.index') }}" class="nav-item {{ request()->routeIs('admin.posts.*') ? 'active' : '' }}">
                     <i class="fas fa-newspaper"></i> News & Stories

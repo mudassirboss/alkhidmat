@@ -157,6 +157,191 @@
 }
 
 /* ============================================
+   Responsive - Mobile Optimizations
+   ============================================ */
+@media (max-width: 768px) {
+    .testimonial-slide {
+        padding: var(--space-md);
+    }
+
+    .testimonial-content {
+        padding: var(--space-lg);
+    }
+
+    .testimonial-quote {
+        font-size: 1rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Stats Grid Responsiveness (if not handled elsewhere) */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-md);
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-lg);
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 1rem !important;
+    }
+
+    /* Floating Donate Button Mobile */
+    .floating-donate {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .testimonial-content {
+        padding: var(--space-md);
+    }
+
+    .zakat-btn-container {
+        margin-top: var(--space-md);
+        width: 100%;
+    }
+
+    .zakat-btn-container .btn {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+}
+
+/* ============================================
+   Footer Styles
+   ============================================ */
+.site-footer {
+    background: linear-gradient(135deg, #002d5b 0%, #004080 100%);
+    color: white;
+    padding: 80px 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.footer-title {
+    color: var(--accent-gold);
+    margin-bottom: var(--space-md);
+}
+
+.footer-subtitle {
+    color: white;
+    margin-bottom: var(--space-md);
+}
+
+.footer-text {
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.footer-text.small {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.success-message {
+    color: #4cd137;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer-form {
+    display: flex;
+    gap: 5px;
+}
+
+.footer-input {
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    flex: 1;
+    min-width: 0;
+}
+
+.footer-btn {
+    padding: 10px 15px;
+    background: var(--accent-gold);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    list-style: none;
+    /* Removed default list styling */
+    padding: 0;
+}
+
+.footer-link-item {
+    margin-bottom: var(--space-xs);
+}
+
+.footer-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-md);
+    text-align: center;
+    color: #a0a0a0;
+}
+
+
+/* ============================================
+   Zakat Calculator Button
+   ============================================ */
+.zakat-btn-container {
+    margin-top: var(--space-lg);
+}
+
+/* ============================================
    Floating Donate Button
    ============================================ */
 .floating-donate {

@@ -11,6 +11,9 @@ Route::get('/volunteer', function () {
     return view('volunteer');
 })->name('volunteer');
 
+// Team Route
+Route::get('/our-team', [App\Http\Controllers\TeamController::class, 'index'])->name('team');
+
 Route::post('/volunteer/submit', function (Illuminate\Http\Request $request) {
     // Validate the form data
     $validated = $request->validate([
@@ -97,7 +100,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/donations/{id}/reject', [App\Http\Controllers\Admin\DonationController::class, 'reject'])->name('donations.reject');
         
         // Volunteers
+        // Volunteers
         Route::get('/volunteers', [App\Http\Controllers\Admin\VolunteerController::class, 'index'])->name('volunteers.index');
+
+        // Team Members
+        Route::resource('team-members', App\Http\Controllers\Admin\TeamMemberController::class);
         
         // News (Posts)
         Route::resource('posts', App\Http\Controllers\Admin\PostController::class);

@@ -12,6 +12,12 @@ class HomeController extends Controller
         // Fetch active sliders
         $sliders = Slider::where('is_active', true)->orderBy('order_index', 'asc')->get();
 
-        return view('home', compact('sliders'));
+        // Fetch leadership members
+        $leadership = \App\Models\TeamMember::where('is_active', true)
+                                            ->where('is_in_leadership', true)
+                                            ->orderBy('order_index')
+                                            ->get();
+
+        return view('home', compact('sliders', 'leadership'));
     }
 }

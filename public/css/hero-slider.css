@@ -322,6 +322,153 @@
     .slide-subtitle,
     .slide-cta {
         transition-duration: 0.01ms !important;
-        animation: none !important;
+    }
+}
+
+/* ============================================
+   Split Layout Styles
+   ============================================ */
+.split-layout-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.split-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 40, 90, 0.85);
+}
+
+.split-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.split-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 2;
+}
+
+.split-image-overlay-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 40, 90, 0.85) 0%, transparent 20%);
+}
+
+.split-image-overlay-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 40, 90, 0.85) 0%, transparent 20%);
+}
+
+/* Text alignment overrides for split layout */
+.split-text-left .slide-title,
+.split-text-left .slide-subtitle {
+    text-align: left;
+}
+
+.split-cta-left {
+    justify-content: flex-start;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .split-layout-container {
+        flex-direction: column-reverse;
+        /* Content on top (visually, but DOM order usually Image then Content? Wait, usually we want Content first on mobile or Image? Let's assume standard stacking: Image top, Content bottom, OR Content top. Let's stick effectively to column) */
+        /* Actually, in the HTML: 
+           Split Right: Content (Left) - Image (Right) -> Mobile: Content Top, Image Bottom? Or Image Top?
+           Usually Image Top is better for visuals.
+           However, let's look at the HTML structure.
+           Split Right: div.split-content, div.split-image.
+           If we do flex-direction: column-reverse, Image will be top, Content bottom.
+           
+           Split Left: div.split-image, div.split-content.
+           If we do flex-direction: column, Image top, Content bottom.
+           
+           So we need specific rules.
+        */
+        flex-direction: column;
+    }
+
+    /* Specific override for Split Right to put image on top */
+    .hero-slide .split-layout-container:has(.split-content:first-child) {
+        flex-direction: column-reverse;
+    }
+
+    .split-content {
+        padding: 30px 20px;
+        flex: 0 0 auto;
+        /* Don't expand to fill height if image is there */
+        width: 100%;
+        background: rgba(0, 40, 90, 0.95);
+        /* Darker background for readability on mobile if overlapping or separate */
+    }
+
+    .split-image {
+        flex: 1;
+        width: 100%;
+        min-height: 250px;
+    }
+
+    .slide-title {
+        font-size: 2rem;
+        /* Smaller title on mobile */
+        text-align: center !important;
+        /* Force center on mobile usually looks better, or keep left? Let's try center for cohesive look, or stick to left if design demands. User said "not mobile responsive", so let's make it safe. Left align is fine if padding is good. Let's stick to left but ensure it fits. */
+        margin-bottom: var(--space-sm);
+    }
+
+    .split-text-left .slide-title,
+    .split-text-left .slide-subtitle {
+        text-align: center !important;
+        /* Force center on mobile for better balance */
+    }
+
+    .split-cta-left {
+        justify-content: center !important;
+    }
+
+    .slide-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--space-md);
+        text-align: center !important;
+    }
+
+    .slide-cta {
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .slide-content {
+        padding-top: 60px;
+        /* Adjust for header if needed */
+        align-items: center;
+        /* Center content vertically */
+    }
+
+    .slide-text {
+        text-align: center;
     }
 }

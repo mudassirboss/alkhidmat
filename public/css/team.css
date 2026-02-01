@@ -1,0 +1,236 @@
+/* ============================================
+   Team Page - Advanced Styles
+   ============================================ */
+
+:root {
+    --card-bg-glass: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --primary-gradient: linear-gradient(135deg, #004080 0%, #002d5b 100%);
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+    --connector-color: rgba(212, 175, 55, 0.3);
+}
+
+.team-hero {
+    height: 40vh;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #d4af37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hierarchy Tree Layout */
+.team-hierarchy {
+    padding: 80px 0;
+    background: #f4f7fa;
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.hierarchy-level {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.connector-vertical {
+    width: 2px;
+    height: 40px;
+    background: var(--connector-color);
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Card Styles */
+.team-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transform-style: preserve-3d;
+}
+
+/* Level Specifics */
+.president-card {
+    width: 320px;
+    padding: 40px;
+    border-top: 4px solid #d4af37;
+    background: linear-gradient(180deg, #fff 0%, #fffaf0 100%);
+}
+
+.president-card .member-img-wrapper {
+    width: 140px;
+    height: 140px;
+    border: 4px solid #d4af37;
+}
+
+.president-card .member-name {
+    font-size: 1.8rem;
+    color: #002d5b;
+}
+
+.vp-card {
+    border-top: 4px solid #004080;
+}
+
+/* Image Styles */
+.member-img-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 3px solid #e0e0e0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 5;
+}
+
+.member-img-wrapper.small {
+    width: 80px;
+    height: 80px;
+}
+
+.member-img-wrapper.xs {
+    width: 60px;
+    height: 60px;
+}
+
+.member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .member-img {
+    transform: scale(1.1);
+}
+
+.team-card:hover .member-img-wrapper {
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Typography */
+.member-role {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.member-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+}
+
+.role-badge {
+    display: inline-block;
+    background: #002d5b;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Holographic / Glass Effect on Hover */
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hierarchy-level {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .connector-vertical {
+        display: none;
+        /* Hide complex connectors on mobile for cleaner stack */
+    }
+
+    .team-card {
+        width: 90%;
+        max-width: 320px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .member-img-wrapper,
+    .member-img-wrapper.small,
+    .member-img-wrapper.xs {
+        width: 70px;
+        height: 70px;
+        margin: 0 15px 0 0;
+        flex-shrink: 0;
+    }
+
+    .member-info {
+        flex: 1;
+    }
+
+    .member-name {
+        font-size: 1.1rem;
+    }
+
+    .president-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .president-card .member-img-wrapper {
+        margin: 0 auto 20px;
+        width: 120px;
+        height: 120px;
+    }
+}

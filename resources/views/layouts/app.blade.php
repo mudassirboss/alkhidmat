@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/section-dividers.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/floating-shapes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nav-redesign.css') }}">
     <link rel="stylesheet" href="{{ asset('css/advanced.css') }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('css/button-fix.css') }}">
@@ -94,37 +95,99 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
     
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <img src="{{ asset('logo.png') }}" alt="Loading" class="loader-logo">
-    </div>
-    <!-- Header/Navigation -->
-    <header class="header">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
         <div class="container">
-            <nav class="nav">
-                <a href="/" class="logo">
-                    <img src="{{ asset('logo.png') }}" alt="Alkhidmat Foundation Muzaffargarh" class="logo-img">
+            <div class="top-bar-left">
+                <a href="mailto:info@alkhidmat.org"><i class="fas fa-envelope"></i> info@alkhidmat.org</a>
+                <a href="tel:080044448"><i class="fas fa-phone-alt"></i> 0800 44448</a>
+            </div>
+            <div class="top-bar-right">
+                <div class="top-bar-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <a href="{{ route('donate.index') }}" class="btn-give-zakat">Give Zakat</a>
+                <a href="#" class="btn-partners">International Partners</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Left: Logo & CTA -->
+            <div class="header-left">
+                <a href="/" class="logo-groups">
+                    <img src="{{ asset('logo.png') }}" alt="Alkhidmat Foundation">
                 </a>
-                
-                <button class="menu-toggle" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <a href="{{ route('donate.index') }}" class="btn-rebuild-gaza">
+                    Rebuild Gaza 🚨
+                </a>
+                <!-- Mobile Toggle -->
+                <button class="mobile-toggle-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </button>
-                
-                <ul class="nav-links">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="#programs" class="nav-link">Programs</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#zakat" class="nav-link">Zakat</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="{{ route('volunteer') }}" class="nav-link">Volunteer</a></li>
-                    <li><a href="{{ route('news') }}" class="nav-link">News</a></li>
-                    <li>
-                        <a href="{{ route('donate.index') }}" class="btn-donate">Donate Now</a>
+            </div>
+
+            <!-- Center: Navigation -->
+            <nav class="nav-center">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link-custom">Appeals <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu-custom">
+                            <a href="{{ route('programs.show', 'disaster-management') }}" class="dropdown-item-custom">Disaster Relief</a>
+                            <a href="{{ route('programs.show', 'orphan-care') }}" class="dropdown-item-custom">Orphan Care</a>
+                            <a href="{{ route('programs.show', 'healthcare') }}" class="dropdown-item-custom">Health Services</a>
+                            <a href="{{ route('programs.show', 'education') }}" class="dropdown-item-custom">Education</a>
+                            <a href="#" class="dropdown-item-custom">Clean Water</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link-custom">Islamic Giving <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu-custom">
+                            <a href="{{ route('donate.index') }}" class="dropdown-item-custom">Pay Zakat</a>
+                            <a href="{{ route('donate.index') }}" class="dropdown-item-custom">Sadaqah</a>
+                            <a href="{{ route('donate.index') }}" class="dropdown-item-custom">Fitrana</a>
+                            <a href="{{ route('donate.index') }}" class="dropdown-item-custom">Fidyah</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link-custom">Our Work <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu-custom">
+                            <a href="#programs" class="dropdown-item-custom">Current Projects</a>
+                            <a href="#impact" class="dropdown-item-custom">Impact Stories</a>
+                            <a href="{{ route('gallery') }}" class="dropdown-item-custom">Media Gallery</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link-custom">Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu-custom">
+                            <a href="{{ route('volunteer') }}" class="dropdown-item-custom">Become a Volunteer</a>
+                            <a href="#" class="dropdown-item-custom">Partnership</a>
+                            <a href="#" class="dropdown-item-custom">Careers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('team') }}" class="nav-link-custom">Our Team</a>
                     </li>
                 </ul>
             </nav>
+
+            <!-- Right: Actions -->
+            <div class="header-right">
+                <a href="{{ route('donate.index') }}" class="btn-donate-red">
+                    Donate Now <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="basket-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -135,7 +198,7 @@
 
     <!-- Footer -->
     <!-- Footer -->
-    <footer class="site-footer" style="background: linear-gradient(135deg, #002d5b 0%, #004080 100%); color: white; padding: 80px 0 40px; position: relative; overflow: hidden;">
+    <footer class="site-footer">
         <!-- Floating Particles -->
         <div class="particles-container">
             <div class="particle particle-sm particle-white" style="opacity: 0.6;"></div>
@@ -159,32 +222,32 @@
             <div class="floating-shape shape-blob shape-md theme-blue pos-8" data-speed="0.2" style="opacity: 0.15; background: rgba(255,255,255,0.05);"></div>
         </div>
 
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-xl);">
+        <div class="container footer-content">
+            <div class="footer-grid">
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: var(--space-md);">{{ $settings['site_title'] ?? 'Alkhidmat Foundation Muzaffargarh' }}</h3>
-                    <p style="color: #e0e0e0; line-height: 1.8;">Service to Humanity with Integrity since 1990. Serving the people of Muzaffargarh and beyond with dedication to humanitarian welfare.</p>
+                    <h3 class="footer-title">{{ $settings['site_title'] ?? 'Alkhidmat Foundation Muzaffargarh' }}</h3>
+                    <p class="footer-text">Service to Humanity with Integrity since 1990. Serving the people of Muzaffargarh and beyond with dedication to humanitarian welfare.</p>
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Newsletter</h4>
-                    <p style="color: #e0e0e0; line-height: 1.6; font-size: 0.9rem; margin-bottom: 15px;">Subscribe to get the latest updates on our relief work.</p>
+                    <h4 class="footer-subtitle">Newsletter</h4>
+                    <p class="footer-text small">Subscribe to get the latest updates on our relief work.</p>
                     
                     @if(session('success') && !request()->routeIs('contact.*') && !request()->routeIs('volunteer.*')) 
                     <!-- Simple check to avoid conflict, ideally use named bags -->
-                    <div style="color: #4cd137; font-size: 0.9rem; margin-bottom: 10px;">{{ session('success') }}</div>
+                    <div class="success-message">{{ session('success') }}</div>
                     @endif
 
-                    <form action="{{ route('subscribe') }}" method="POST" style="display: flex; gap: 5px;">
+                    <form action="{{ route('subscribe') }}" method="POST" class="footer-form">
                         @csrf
-                        <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 4px; border: none; flex: 1; min-width: 0;">
-                        <button type="submit" style="padding: 10px 15px; background: var(--accent-gold); border: none; border-radius: 4px; color: white; cursor: pointer; font-weight: bold;">Join</button>
+                        <input type="email" name="email" placeholder="Your Email" required class="footer-input">
+                        <button type="submit" class="footer-btn">Join</button>
                     </form>
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Contact Info</h4>
-                    <p style="color: #e0e0e0; line-height: 1.8;">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <p class="footer-text">
                         Email: {{ $settings['contact_email'] ?? 'info@alkhidmatmzg.org' }}<br>
                         Phone: {{ $settings['contact_phone'] ?? '+92 3XX XXXXXXX' }}<br>
                         Address: {{ $settings['contact_address'] ?? 'Muzaffargarh, Punjab, Pakistan' }}
@@ -192,18 +255,18 @@
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Follow Us</h4>
-                    <div style="display: flex; gap: var(--space-md);">
-                        <li style="margin-bottom: var(--space-xs);"><a href="#impact" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Impact</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="{{ route('gallery') }}" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Gallery</a></li>
-                        <li style="margin-bottom: var(--space-xs);"><a href="#donate" style="color: #e0e0e0; text-decoration: none; transition: color 0.3s;">Donate</a></li>
-                        <a href="{{ $settings['social_instagram'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">📸</a>
-                        <a href="{{ $settings['social_youtube'] ?? '#' }}" style="color: white; font-size: 1.5rem; transition: transform 0.3s;">▶️</a>
+                    <h4 class="footer-subtitle">Follow Us</h4>
+                    <div class="footer-social">
+                        <li class="footer-link-item"><a href="#impact" class="footer-link">Impact</a></li>
+                        <li class="footer-link-item"><a href="{{ route('gallery') }}" class="footer-link">Gallery</a></li>
+                        <li class="footer-link-item"><a href="#donate" class="footer-link">Donate</a></li>
+                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="social-icon">📸</a>
+                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="social-icon">▶️</a>
                     </div>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-md); text-align: center; color: #a0a0a0;">
+            <div class="footer-bottom">
                 <p>&copy; {{ date('Y') }} {{ $settings['site_title'] ?? 'Alkhidmat Foundation Muzaffargarh' }}. All rights reserved.</p>
             </div>
         </div>
@@ -216,7 +279,21 @@
     <script defer src="{{ asset('js/hero-slider.js') }}"></script>
     <script defer src="{{ asset('js/image-optimizer.js') }}"></script>
     <script defer src="{{ asset('js/floating-shapes.js') }}"></script>
-    <script defer src="{{ asset('js/parallax.js') }}"></script>
-    @yield('scripts')
-</body>
+<script>
+    function toggleMenu() {
+        // Toggle desktop/mobile menu visibility
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('active');
+    }
+    
+    // Dropdown toggle for mobile
+    document.querySelectorAll('.nav-link-custom').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 1100 && this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu-custom')) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('active');
+            }
+        });
+    });
+</script>
 </html>
