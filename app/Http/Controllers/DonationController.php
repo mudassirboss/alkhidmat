@@ -20,7 +20,7 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'amount' => 'required|numeric|min:100',
+            'amount' => 'nullable|numeric|min:100',
             'amount_final' => 'required|numeric|min:100', // Use this as the actual amount
             'donation_type' => 'required|string',
             'name' => 'required|string|max:255',
@@ -54,6 +54,14 @@ class DonationController extends Controller
             'receipt_path' => $receiptPath,
             'status' => 'pending', // Pending manual verification
         ]);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you for your generous donation!',
+                'donation_id' => $donation->id
+            ]);
+        }
 
         return redirect()->route('donate.thank-you')->with('donation_id', $donation->id);
     }

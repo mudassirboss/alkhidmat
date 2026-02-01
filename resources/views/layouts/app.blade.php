@@ -279,6 +279,7 @@
     <script defer src="{{ asset('js/hero-slider.js') }}"></script>
     <script defer src="{{ asset('js/image-optimizer.js') }}"></script>
     <script defer src="{{ asset('js/floating-shapes.js') }}"></script>
+    @yield('scripts')
 <script>
     function toggleMenu() {
         // Toggle desktop/mobile menu visibility
