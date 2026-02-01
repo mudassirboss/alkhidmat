@@ -548,8 +548,9 @@
         <h2 style="font-size: 2.5rem; margin-bottom: var(--space-md);">Stay Updated</h2>
         <p style="font-size: 1.2rem; opacity: 0.95;">Subscribe to receive updates about our humanitarian work and impact stories</p>
         
-        <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <form class="newsletter-form" action="{{ route('subscribe') }}" method="POST">
+            @csrf
+            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
             <button type="submit" class="newsletter-button">Subscribe</button>
         </form>
     </div>
@@ -575,4 +576,7 @@
 <a href="#donate" class="floating-donate">
     ❤️ Donate Now
 </a>
+@section('scripts')
+    @include('partials.zakat_script')
+@endsection
 @endsection
