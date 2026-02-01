@@ -2,132 +2,160 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="header-bar">
-        <h1 class="h3 mb-0 text-gray-800">Edit Team Member</h1>
-        <a href="{{ route('admin.team-members.index') }}" class="btn-ui btn-primary-ui" style="background: #6c757d;">
-            <i class="fas fa-arrow-left"></i> Back to List
+    <!-- Header -->
+    <div class="header-bar mb-4 d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0 text-gray-800" style="font-family: 'Outfit', sans-serif; font-weight: 700;">Edit Team Member</h1>
+        <a href="{{ route('admin.team-members.index') }}" class="btn-ui btn-primary-ui" style="background: #6c757d; border: none;">
+            <i class="fas fa-arrow-left mr-2"></i> Back to List
         </a>
     </div>
 
-    <div class="card-ui">
-        <form action="{{ route('admin.team-members.update', $teamMember->id) }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            
-            <h5 style="color: var(--primary); margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
-                <i class="fas fa-user-edit mr-2"></i>Edit Information
-            </h5>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-signature mr-1" style="color: var(--accent);"></i> Full Name
-                        </label>
-                        <input type="text" name="name" class="form-control" value="{{ $teamMember->name }}" style="padding: 12px; border-radius: 8px;" required>
+    <form action="{{ route('admin.team-members.update', $teamMember->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        
+        <div class="row">
+            <!-- Left Column: Main Information -->
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4 border-0" style="border-radius: 12px;">
+                    <div class="card-header bg-white py-3" style="border-bottom: 1px solid #f0f0f0; border-radius: 12px 12px 0 0;">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <i class="fas fa-user-edit mr-2"></i>Basic Information
+                        </h6>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-briefcase mr-1" style="color: var(--accent);"></i> Role / Job Title
-                        </label>
-                        <input type="text" name="role" class="form-control" value="{{ $teamMember->role }}" style="padding: 12px; border-radius: 8px;" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-layer-group mr-1" style="color: var(--accent);"></i> Hierarchy Level
-                        </label>
-                        <select name="hierarchy_level" class="form-control" style="padding: 12px; height: auto; border-radius: 8px;" required>
-                            <option value="1" {{ $teamMember->hierarchy_level == 1 ? 'selected' : '' }}>Level 1 - President</option>
-                            <option value="2" {{ $teamMember->hierarchy_level == 2 ? 'selected' : '' }}>Level 2 - Vice President</option>
-                            <option value="3" {{ $teamMember->hierarchy_level == 3 ? 'selected' : '' }}>Level 3 - Director</option>
-                            <option value="4" {{ $teamMember->hierarchy_level == 4 ? 'selected' : '' }}>Level 4 - Team Lead</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-sort-numeric-down mr-1" style="color: var(--accent);"></i> Display Order
-                        </label>
-                        <input type="number" name="order_index" class="form-control" value="{{ $teamMember->order_index }}" style="padding: 12px; border-radius: 8px;">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                     <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-image mr-1" style="color: var(--accent);"></i> Profile Image
-                        </label>
-                        
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-                            @if($teamMember->image_path)
-                                <div style="position: relative;">
-                                    <img src="{{ asset('images/team/' . $teamMember->image_path) }}" width="100" class="img-thumbnail rounded-circle" style="border: 3px solid #ddd;">
-                                    <div style="position: absolute; bottom: 0; right: 0; background: #28a745; color: white; border-radius: 50%; width: 25px; height: 25px; text-align: center; font-size: 14px; padding-top: 2px;">
-                                        <i class="fas fa-check"></i>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-4">
+                                    <label class="form-label font-weight-bold text-muted small text-uppercase">Full Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white border-right-0"><i class="fas fa-signature text-primary"></i></span>
+                                        </div>
+                                        <input type="text" name="name" class="form-control border-left-0" value="{{ $teamMember->name }}" placeholder="e.g. Umer Daraz Farooqi" required style="height: 45px;">
                                     </div>
                                 </div>
-                            @else
-                                <div style="width: 100px; height: 100px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                                    <i class="fas fa-user" style="font-size: 40px;"></i>
-                                </div>
-                            @endif
-                            
-                            <div style="flex: 1;">
-                                <input type="file" name="image" class="form-control" style="padding: 10px; height: auto; border: 1px solid #e2e8f0;" accept="image/*">
-                                <small class="text-muted d-block mt-2">Upload to replace the current image. Recommended size: 500x500px.</small>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-4">
+                                    <label class="form-label font-weight-bold text-muted small text-uppercase">Role / Job Title</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white border-right-0"><i class="fas fa-briefcase text-primary"></i></span>
+                                        </div>
+                                        <input type="text" name="role" class="form-control border-left-0" value="{{ $teamMember->role }}" placeholder="e.g. Chairman" required style="height: 45px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <label class="form-label font-weight-bold text-muted small text-uppercase">Leadership Quote</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white border-right-0 align-items-start pt-3"><i class="fas fa-quote-left text-primary"></i></span>
+                                </div>
+                                <textarea name="leadership_quote" class="form-control border-left-0" rows="4" placeholder="Enter a quote if this member is in the leadership team..." style="line-height: 1.6;">{{ $teamMember->leadership_quote }}</textarea>
+                            </div>
+                            <small class="form-text text-muted mt-2">Displayed prominently on the homepage if enabled.</small>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group mb-4">
-                        <label style="font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">
-                            <i class="fas fa-quote-left mr-1" style="color: var(--accent);"></i> Leadership Quote
-                        </label>
-                        <textarea name="leadership_quote" class="form-control" rows="3" placeholder="Enter a quote if this member is in the leadership team..." style="padding: 12px; border-radius: 8px;">{{ $teamMember->leadership_quote }}</textarea>
+            <!-- Right Column: Settings & Image -->
+            <div class="col-lg-4">
+                <!-- Profile Image Card -->
+                <div class="card shadow-sm mb-4 border-0" style="border-radius: 12px;">
+                    <div class="card-header bg-white py-3" style="border-bottom: 1px solid #f0f0f0; border-radius: 12px 12px 0 0;">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <i class="fas fa-image mr-2"></i>Profile Image
+                        </h6>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-3 position-relative d-inline-block">
+                            @if($teamMember->image_path)
+                                <img src="{{ asset('images/team/' . $teamMember->image_path) }}" class="img-thumbnail rounded-circle shadow-sm profile-preview" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #fff;">
+                                <div class="status-indicator bg-success text-white rounded-circle position-absolute" style="width: 32px; height: 32px; bottom: 5px; right: 5px; display: flex; align-items: center; justify-content: center; border: 2px solid white;">
+                                    <i class="fas fa-check small"></i>
+                                </div>
+                            @else
+                                <div class="bg-light rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3 text-muted profile-preview" style="width: 150px; height: 150px; border: 2px dashed #dee2e6;">
+                                    <i class="fas fa-user fa-3x"></i>
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="custom-file text-left mt-3">
+                            <label for="imageUpload" class="btn btn-outline-primary btn-block" style="cursor: pointer; border-radius: 8px;">
+                                <i class="fas fa-camera mr-2"></i> Change Photo
+                            </label>
+                            <input type="file" id="imageUpload" name="image" class="d-none" accept="image/*">
+                        </div>
+                        <small class="text-muted d-block mt-2">Recommended: 500x500px (1:1)</small>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group mb-4 d-flex align-items-center gap-4 flex-wrap">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="isActive" name="is_active" value="1" {{ $teamMember->is_active ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="isActive" style="font-weight: 600; cursor: pointer;">Active Status</label>
-                </div>
-                <!-- Show on Team Page Toggle -->
-                <div class="custom-control custom-switch ml-4">
-                    <input type="checkbox" class="custom-control-input" id="showOnTeamPage" name="show_on_team_page" value="1" {{ $teamMember->show_on_team_page ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="showOnTeamPage" style="font-weight: 600; cursor: pointer;">Show on Team Page</label>
-                </div>
-                <div class="custom-control custom-switch ml-4">
-                    <input type="checkbox" class="custom-control-input" id="isLeadership" name="is_in_leadership" value="1" {{ $teamMember->is_in_leadership ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="isLeadership" style="font-weight: 600; cursor: pointer;">Show in Homepage Leadership</label>
-                </div>
-            </div>
+                <!-- Settings Card -->
+                <div class="card shadow-sm mb-4 border-0" style="border-radius: 12px;">
+                    <div class="card-header bg-white py-3" style="border-bottom: 1px solid #f0f0f0; border-radius: 12px 12px 0 0;">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <i class="fas fa-sliders-h mr-2"></i>Visibility & Settings
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Hierarchy Level -->
+                        <div class="form-group mb-4">
+                            <label class="form-label font-weight-bold text-muted small text-uppercase">Hierarchy Level</label>
+                            <select name="hierarchy_level" class="form-control custom-select" style="height: 45px; border-radius: 8px;" required>
+                                <option value="1" {{ $teamMember->hierarchy_level == 1 ? 'selected' : '' }}>Level 1 - President</option>
+                                <option value="2" {{ $teamMember->hierarchy_level == 2 ? 'selected' : '' }}>Level 2 - Vice President</option>
+                                <option value="3" {{ $teamMember->hierarchy_level == 3 ? 'selected' : '' }}>Level 3 - Director</option>
+                                <option value="4" {{ $teamMember->hierarchy_level == 4 ? 'selected' : '' }}>Level 4 - Team Lead</option>
+                            </select>
+                        </div>
 
-            <div style="border-top: 1px solid #eee; padding-top: 20px; text-align: right;">
-                <button type="submit" class="btn-ui btn-primary-ui">
-                    <i class="fas fa-save"></i> Update Member
+                        <!-- Order Index -->
+                        <div class="form-group mb-4">
+                            <label class="form-label font-weight-bold text-muted small text-uppercase">Display Order</label>
+                            <input type="number" name="order_index" class="form-control" value="{{ $teamMember->order_index }}" style="height: 45px; border-radius: 8px;">
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Toggles -->
+                        <div class="d-flex flex-column gap-3">
+                            <!-- Active Status -->
+                            <div class="custom-control custom-switch d-flex justify-content-between align-items-center pl-0 mb-3">
+                                <label class="custom-control-label position-static mb-0 font-weight-bold text-dark" for="isActive">Active Status</label>
+                                <input type="checkbox" class="custom-control-input position-static m-0" id="isActive" name="is_active" value="1" {{ $teamMember->is_active ? 'checked' : '' }} style="width: 40px; height: 20px;">
+                            </div>
+
+                            <!-- Show on Team Page -->
+                            <div class="custom-control custom-switch d-flex justify-content-between align-items-center pl-0 mb-3">
+                                <label class="custom-control-label position-static mb-0 font-weight-bold text-dark" for="showOnTeamPage">Show on Team Page</label>
+                                <input type="checkbox" class="custom-control-input position-static m-0" id="showOnTeamPage" name="show_on_team_page" value="1" {{ $teamMember->show_on_team_page ? 'checked' : '' }} style="width: 40px; height: 20px;">
+                            </div>
+
+                            <!-- Leadership Homepage -->
+                            <div class="custom-control custom-switch d-flex justify-content-between align-items-center pl-0">
+                                <label class="custom-control-label position-static mb-0 font-weight-bold text-dark" for="isLeadership">Homepage Leadership</label>
+                                <input type="checkbox" class="custom-control-input position-static m-0" id="isLeadership" name="is_in_leadership" value="1" {{ $teamMember->is_in_leadership ? 'checked' : '' }} style="width: 40px; height: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold shadow-sm" style="border-radius: 8px; font-size: 1.1rem; background: linear-gradient(135deg, #0056b3 0%, #004080 100%); border: none;">
+                    <i class="fas fa-save mr-2"></i> Update Member
                 </button>
             </div>
-            <input type="hidden" name="cropped_image" id="cropped_image">
-        </form>
-    </div>
-    <!-- Custom Advanced Crop Overlay -->
+        </div>
+        <input type="hidden" name="cropped_image" id="cropped_image">
+    </form>
+
+    <!-- Custom Advanced Crop Overlay (Preserved Logic) -->
     <div id="crop-overlay" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0, 13, 33, 0.95); backdrop-filter: blur(5px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
         <div class="crop-container" style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); width: 90%; max-width: 600px; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);">
             
@@ -199,9 +227,25 @@
             border-color: #0056b3;
             transform: translateY(-2px);
         }
+        /* Custom Switch Styling Fix */
+        .custom-control-input:checked ~ .custom-control-label::before {
+            border-color: #0056b3;
+            background-color: #0056b3;
+        }
+        .custom-control-label::before {
+            height: 1.5rem;
+            width: 2.75rem;
+            border-radius: 1rem;
+        }
+        .custom-control-label::after {
+            height: calc(1.5rem - 4px);
+            width: calc(1.5rem - 4px);
+            border-radius: 50%;
+        }
+        .custom-control-input:checked ~ .custom-control-label::after {
+            transform: translateX(1.25rem);
+        }
     </style>
-
-    <!-- Hidden Input Previously Here -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -209,7 +253,7 @@
             var overlay = document.getElementById('crop-overlay');
             var cropContainer = overlay.querySelector('.crop-container');
             var cropper;
-            var fileInput = document.querySelector('input[name="image"]');
+            var fileInput = document.getElementById('imageUpload'); // Updated ID
             var croppedInput = document.getElementById('cropped_image');
             
             // Show Overlay
@@ -307,10 +351,19 @@
                     this.style.background = '#10b981'; // Green
                     
                     // Update Preview if exists
-                    var previewImg = document.querySelector('.img-thumbnail'); // The existing image
+                    var previewImg = document.querySelector('.profile-preview'); 
                     if(previewImg) {
-                        previewImg.src = base64data;
-                        previewImg.style.border = '3px solid #10b981'; // Green border
+                        // If it's the "user icon" placeholder, replace it with an img tag
+                        if(previewImg.tagName === 'DIV') {
+                            var newImg = document.createElement('img');
+                            newImg.className = 'img-thumbnail rounded-circle shadow-sm profile-preview';
+                            newImg.style = 'width: 150px; height: 150px; object-fit: cover; border: 4px solid #10b981;';
+                            newImg.src = base64data;
+                            previewImg.parentNode.replaceChild(newImg, previewImg);
+                        } else {
+                            previewImg.src = base64data;
+                            previewImg.style.border = '4px solid #10b981'; // Green border
+                        }
                     }
 
                     setTimeout(() => {
