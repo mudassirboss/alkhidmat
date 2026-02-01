@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Cropper.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
@@ -240,6 +243,29 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <style>
+        /* Bootstrap Overrides & Fixes */
+        a { text-decoration: none; }
+        
+        .nav-item {
+            text-decoration: none !important; /* Force remove underline from sidebar links */
+        }
+        
+        /* Ensure sidebar stays above Bootstrap container */
+        .sidebar { z-index: 1050; }
+        
+        /* Fix overlapping with bootstrap container */
+        .container-fluid { padding: 0; }
+        
+        /* Fix Input Focus Ring Color */
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 0.25rem rgba(0, 86, 179, 0.25);
+        }
+        
+        /* Restore custom card style if needed, though Bootstrap cards are used now */
+        .card-ui { border: none; }
+    </style>
 </head>
 <body>
 
@@ -349,5 +375,7 @@
             content_css: 'default'
         });
     </script>
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
